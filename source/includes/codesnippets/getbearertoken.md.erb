@@ -1,0 +1,96 @@
+```shell
+curl --location -g --request POST '{{AADInstance}}/oauth2/token' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--header 'ClientId: {{ClientID}}' \
+--header 'ClientSecret: {{ClientSecret}}' \
+--header 'Tenant: login.microsoftonline.com' \
+--header 'ResourceId: {{ResourceId}}' \
+--header 'AADInstance: {{AADInstance}}' \
+--data-raw ''
+```
+
+```javascript
+var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+myHeaders.append("ClientId", "{{ClientID}}");
+myHeaders.append("ClientSecret", "{{ClientSecret}}");
+myHeaders.append("Tenant", "login.microsoftonline.com");
+myHeaders.append("ResourceId", "{{ResourceId}}");
+myHeaders.append("AADInstance", "{{AADInstance}}");
+
+var raw = "";
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
+
+fetch("{{AADInstance}}/oauth2/token", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+```
+
+```java
+OkHttpClient client = new OkHttpClient().newBuilder()
+  .build();
+MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
+RequestBody body = RequestBody.create(mediaType, "");
+Request request = new Request.Builder()
+  .url("{{AADInstance}}/oauth2/token")
+  .method("POST", body)
+  .addHeader("Content-Type", "application/x-www-form-urlencoded")
+  .addHeader("ClientId", "{{ClientID}}")
+  .addHeader("ClientSecret", "{{ClientSecret}}")
+  .addHeader("Tenant", "login.microsoftonline.com")
+  .addHeader("ResourceId", "{{ResourceId}}")
+  .addHeader("AADInstance", "{{AADInstance}}")
+  .build();
+Response response = client.newCall(request).execute();
+```
+
+```swift
+import Foundation
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
+
+var semaphore = DispatchSemaphore (value: 0)
+
+var request = URLRequest(url: URL(string: "{{AADInstance}}/oauth2/token")!,timeoutInterval: Double.infinity)
+request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+request.addValue("{{ClientID}}", forHTTPHeaderField: "ClientId")
+request.addValue("{{ClientSecret}}", forHTTPHeaderField: "ClientSecret")
+request.addValue("login.microsoftonline.com", forHTTPHeaderField: "Tenant")
+request.addValue("{{ResourceId}}", forHTTPHeaderField: "ResourceId")
+request.addValue("{{AADInstance}}", forHTTPHeaderField: "AADInstance")
+
+request.httpMethod = "POST"
+
+let task = URLSession.shared.dataTask(with: request) { data, response, error in 
+  guard let data = data else {
+    print(String(describing: error))
+    semaphore.signal()
+    return
+  }
+  print(String(data: data, encoding: .utf8)!)
+  semaphore.signal()
+}
+
+task.resume()
+semaphore.wait()
+
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "token_type": "Bearer",
+  "expires_in": "3600",
+  "resource": "{{ResourceId}}",
+  "access_token": "{{AccessToken}}",
+}
+```

@@ -1,0 +1,38 @@
+## Enable
+
+<%= partial "includes/codesnippets/enable.md.erb" %>
+
+Enable a peripheral for reading or scanning.
+
+Enabling a peripheral indicates that the application is ready to receive data via the messages.
+
+Executing a Disable request will stop the flow of data to the application.
+
+There is no need to explicitly acquire the device before this command is issued, but in this case the ExclusiveAccess flag will be set to True by default.
+
+The application should disable the device when it receives an AccessExpiry message with a ‘AccessRequested’ parameter.  And should disable the device when not in use.
+
+### HTTP Request
+
+`POST peripheral/enable`
+
+### Request Body
+
+Param | Type | O/M | Description
+------|------|-----|------------
+Locator | string | Mandatory | The location of the peripheral.
+TransactionId | string | Optional | The TransactionId used by the application.
+SessionToken | string | Optional | The SessionToken received from the previously executed Subscribe request.
+
+
+<aside class="success">
+A successful request returns a 200 OK Status and the peripheral is now enabled for scanning and reading.
+</aside>
+
+### Response
+
+No JSON response.
+
+<aside class="warning">
+An unsuccessful request may return either a 400, 403, or 501 error code with an explanatory message. For the general meaning of these responses, see the Error Codes section of this document.
+</aside>

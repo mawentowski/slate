@@ -1,0 +1,30 @@
+```shell
+```
+
+```javascript
+```
+
+```java
+```
+
+```swift
+```
+
+
+> Request Body (JSON):
+
+```json
+{
+    "LocationID": "{{LocationID}}"
+}
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "sessionToken": "{{sessionToken}}",
+  "expires": "YYYY-MM-DD",
+}
+```
+

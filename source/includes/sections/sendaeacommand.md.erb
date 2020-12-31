@@ -1,0 +1,31 @@
+## Send AEA Command 
+
+<%= partial "includes/codesnippets/sendaeacommand.md.erb" %>
+
+Send an AEA command to a peripheral.
+
+### HTTP Request
+
+`POST peripheral/aea/command`
+
+### Request Body
+
+Param | Type | O/M | Description
+------|------|-----|------------
+Locator | string | Mandatory | The location of the peripheral.
+TransactionId | string | Optional | The TransactionId used by the application.
+RequestId | string | Mandatory | A unique ID for the command to ensure the same command is not executed multiple times.
+SessionToken | string | Optional | The SessionToken received from the previously executed Subscribe request.
+AEACommand | string | Mandatory | An AEA command.
+
+<aside class="success">
+A successful request returns a 200 OK Status indicating the AEA message was successfully sent. 
+</aside>
+
+### Response
+
+No JSON response.
+
+<aside class="warning">
+An unsuccessful request may return either a 400 or 401 error code with an explanatory message. For the general meaning of these responses, see the Error Codes section of this document.
+</aside>

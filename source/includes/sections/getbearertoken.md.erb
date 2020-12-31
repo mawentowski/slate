@@ -1,0 +1,51 @@
+## Request Bearer Token
+
+<%= partial "includes/codesnippets/getbearertoken.md.erb" %>
+
+Request a bearer token to establish authorization to use our API.
+
+### HTTP Request
+
+`POST /oauth2/token`
+
+### Header Parameters
+<!-- Is it assumed header parameters are mandatory, or need to say explicity? -->
+<!-- Maybe explain M/O since it is abbreviated -->
+<!-- Min and max values are really only applicable to non-variable fields. How handle? -->
+
+Param | Value | Type | Description
+------|-------|------|------------
+Content-Type | application/x-www-<br>form-urlencoded | string | Media type of the resource.
+ClientId | {{ClientID}} | string | Globally Unique Identifier (GUID) known as the Application ID.
+ClientSecret | {{ClientSecret}} | string | The secret used with the ClientId to authenticate against a resource. 
+Tenant | login.microsoft<br>online.com | string | login.windows.net 
+ResourceId | {{ResourceId}} | string | A GUID denoting the resource / service / application that "access to" is being requested. 
+AADInstance | {{AADInstance}} | string | Trusted instance of Azure Activity Directory
+
+
+### Request Body
+Since the content-type for this request is **application/x-www-form-urlencoded**, there is no JSON example. Below is a request example:
+
+`Content-Type=application/x-www-form-urlencoded&ClientId={{ClientID}}&ClientSecret={{ClientSecret}}&Tenant=login.microsoftonline.com&ResourceId={{ResourceId}}&AADInstance={{AADInstance}}`
+
+Param | Value | Type | Description
+------|-------|------|------------
+grant_type | client_credentials | string | Your credentials.
+client_id | {{ClientID}} | string | A Globally Unique Identifier (GUID) known as the Application ID.
+client_secret | {{ClientSecret}} | string | The secret used with the ClientId to authenticate against a resource. 
+resource | {{ResourceId}} | string | A GUID denoting the resource / service / application that "access to" is being requested. 
+
+<aside class="success">
+A successful request returns a 200 OK Status with the body returning the access token.
+</aside>
+
+### Response
+
+Param | Type | O/M | Description
+------|------|-----|------------
+token_type | string | Mandatory | The type of token this is (i.e. Bearer).
+expires_in | datetime | Mandatory | Duration of time the access token is granted for.
+resource | string | Mandatory | A GUID denoting the resource / service / application that "access to" is being requested.
+access_token | string | Mandatory | The access token string as issued by the authorization server.
+
+<!-- <aside class="warning">Warning text</aside> -->

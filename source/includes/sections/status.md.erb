@@ -1,0 +1,35 @@
+## Status
+
+<%= partial "includes/codesnippets/status.md.erb" %>
+
+Request the status of peripherals.  
+
+This is an information command and the status will still be returned even if the peripheral is acquired for exclusive access by another application. If the status of all peripherals is desired, leave the LocatorList empty.
+
+### HTTP Request
+
+`POST location/status`
+
+### Request Body
+For the sake of exercising the API, you can specify any numerical value as the transaction ID and view it via the subscription.
+
+Param | Type | O/M | Description
+------|------|-----|------------
+LocatorList | string | Mandatory | Retrieves the real-time status of the peripherals identified in the LocatorList.
+TransactionId | string | Optional | The TransactionId used by the application.
+SessionToken | string | Optional | The SessionToken received from the previously executed Subscribe request.
+
+<aside class="success">
+A successful request returns a status of 200 OK and the status message will either be sent to 1) the endpoint defined by the return payload from the Subscribe request for the specified location, or 2) to the service bus. The second scenario occurs when a webhook was not specified in the previously executed Subscribe request.
+</aside>
+
+### Response
+
+Param | Type | Optional/Mandatory | Description
+------|-------|-------------------|------------
+DeviceStatusList | string | Mandatory | A list of DeviceStatus objects. Possible values are Online, Offline, or DeviceError.
+TransactionId | string | Mandatory | The transaction id sent by the application in the Status call used by the application to correlate responses.
+
+<aside class="warning">
+An unsuccessful request may return a 400 error code with an explanatory message. For the general meaning of these responses, see the Error Codes section of this document.
+</aside>

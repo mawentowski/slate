@@ -1,0 +1,29 @@
+## Disable
+
+<%= partial "includes/codesnippets/disable.md.erb" %>
+
+Cancel a previously executed Enable request and prevent the return of data from the Locator specified.  It does not release the peripheral if the Release bool is set to False.  If the peripheral is not disabled, this request will disable the peripheral. 
+
+### HTTP Request
+
+`POST peripheral/disable`
+
+### Request Body
+
+Param | Type | O/M | Description
+------|------|-----|------------
+Locator | string | Mandatory | The location of the peripheral.
+TransactionId | string | Mandatory | Sent by the application.
+SessionToken | string | Mandatory | The session token received from the subscription call.
+
+<aside class="success">
+A successful request returns a 200 OK Status if the Disable request succeeds, or if there is no outstanding Enable request.
+</aside>
+
+### Response
+
+No JSON response.
+
+<aside class="warning">
+An unsuccessful request may return a 400 error code with an explanatory message. For the general meaning of these responses, see the Error Codes section of this document.
+</aside>
