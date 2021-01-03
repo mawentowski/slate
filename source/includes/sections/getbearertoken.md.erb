@@ -2,7 +2,8 @@
 
 <%= partial "includes/codesnippets/getbearertoken.md.erb" %>
 
-Request a bearer token to establish authorization to use our API.
+Request a bearer token to establish authorization to use our API. Enter the credentials we 
+provided you as part of signup in the header of your request, as shown below.
 
 ### HTTP Request
 
@@ -15,13 +16,11 @@ Request a bearer token to establish authorization to use our API.
 
 Param | Value | Type | Description
 ------|-------|------|------------
-Content-Type | application/x-www-<br>form-urlencoded | string | Media type of the resource.
-ClientId | {{ClientID}} | string | Globally Unique Identifier (GUID) known as the Application ID.
-ClientSecret | {{ClientSecret}} | string | The secret used with the ClientId to authenticate against a resource. 
-Tenant | login.microsoft<br>online.com | string | login.windows.net 
-ResourceId | {{ResourceId}} | string | A GUID denoting the resource / service / application that "access to" is being requested. 
-AADInstance | {{AADInstance}} | string | Trusted instance of Azure Activity Directory
-
+Content-Type | application/x-www-<br>form-urlencoded | string | The format the body of the request is being sent as.
+ClientId | {{ClientID}} | string | The public identifier for your application represented as a 32-character hex string.
+ClientSecret | {{ClientSecret}} | string | The secret (or password) known only to the application and the authorization server.
+ResourceId | {{ResourceId}} | string | The fully qualified ID of the resource your application is requesting "access to". 
+AADInstance | {{AADInstance}} | string | Your dedicated and trusted instance of Azure Active Directory.
 
 ### Request Body
 Since the content-type for this request is **application/x-www-form-urlencoded**, there is no JSON example. Below is a request example:
@@ -30,22 +29,28 @@ Since the content-type for this request is **application/x-www-form-urlencoded**
 
 Param | Value | Type | Description
 ------|-------|------|------------
-grant_type | client_credentials | string | Your credentials.
-client_id | {{ClientID}} | string | A Globally Unique Identifier (GUID) known as the Application ID.
-client_secret | {{ClientSecret}} | string | The secret used with the ClientId to authenticate against a resource. 
-resource | {{ResourceId}} | string | A GUID denoting the resource / service / application that "access to" is being requested. 
+grant_type | client_credentials | string | Credentials granting you limited access to our resources in order to request an access token.
+ClientId | {{ClientID}} | string | The public identifier for your application represented as a 32-character hex string.
+ClientSecret | {{ClientSecret}} | string | The secret (or password) known only to the application and the authorization server.
+ResourceId | {{ResourceId}} | string | The fully qualified ID of the resource your application is requesting "access to". 
 
 <aside class="success">
-A successful request returns a 200 OK Status with the body returning the access token.
+A successful request returns a 200 OK Status with the body returning the bearer token. OAuth2 is now 
+established.
 </aside>
 
 ### Response
 
 Param | Type | O/M | Description
 ------|------|-----|------------
-token_type | string | Mandatory | The type of token this is (i.e. Bearer).
-expires_in | datetime | Mandatory | Duration of time the access token is granted for.
-resource | string | Mandatory | A GUID denoting the resource / service / application that "access to" is being requested.
-access_token | string | Mandatory | The access token string as issued by the authorization server.
+token_type | string | Mandatory | The type of token (i.e. Bearer).
+expires_in | datetime | Mandatory | The date and time the access token expires.
+ResourceId | string | string | The fully qualified ID of the resource your application is requesting "access to". 
+access_token | string | Mandatory | Token that informs the API that you are authorized to access the API and perform specific actions specified by the scope that was granted during authorization.
 
-<!-- <aside class="warning">Warning text</aside> -->
+
+Now that OAuth2 is established, use the bearer token to retrieve a session token. 
+Please note that the bearer token expires, as indicated by the `expires_in` value returned in the response.
+
+Use a tool such as [jwt.io](https://jwt.io/) to view the content of the bearer token. This approach is handy for troubleshooting 
+if you need to verify permission roles granted for the client it is provided against.

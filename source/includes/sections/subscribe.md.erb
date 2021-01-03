@@ -2,7 +2,13 @@
 
 <%= partial "includes/codesnippets/subscribe.md.erb" %>
 
-Subscribe to the location contained in your session token.
+<!-- Subscribe to the location (subscribes a peripheral to a location) which reserves it to the session token?
+Then unsubscribe to release all peripherals reserved by session token? -->
+
+Subscribe to the location encoded in your session token. The only required action is to include it in the Request body, 
+as it is decoded and checked during the Subscribe call.
+
+<!-- This returns the last known status of the logical type Scanner with the capability to read barcodes. -->
 
 ### HTTP Request
 
@@ -13,24 +19,38 @@ Insert the session token into the body of this request. You should have retrieve
 
 Param | Type | O/M | Description
 ------|-------|-------------------|------------
-SessionToken | string | Mandatory | Contains the location at which the session token will be used.
-Webhook | string | Optional | Fill in this field to receive messages via the webhook. No service bus information will be returned.
-WebhookSecurity<br>Token | string | Optional | See above.
+SessionToken | string | Mandatory | One-time bearer token used to establish a session for a user and is revoked when the token expires. It contains the location at which the session token will be used.
+
+<!-- Webhook | string | Optional | Fill in this field to receive messages via the webhook. No service bus information will be returned.
+WebhookSecurity<br>Token | string | Optional | See above. -->
 
 <aside class="success">
-A successful request returns a status of 200 OK and the body of the response will contain the location capability list as well as service bus details. See the Peripheral API documentation for additional details. <!-- Add link here. The JSON response is the only thing not included here, so maybe you do not need a link to the conceptual guide-->
+A successful request returns a status of 200 OK and the body of the response will contain the location capability 
+list as well as service bus details. See the Peripheral API documentation for additional details. 
+<!-- Add link here. The JSON response is the only thing not included here, 
+so maybe you do not need a link to the conceptual guide-->
+
 </aside>
 
 ### Response
-The response includes the last known status of the device. If the application needs to obtain the real-time status, it can use the Request Status command. 
+The response returns the deviceDetails object that lists the devices at the specified location and their details
+such as status, if they are enabled, their type, and actions available to each device.
 
 Param | Type | O/M | Description
 ------|------|--------------------|------------
-LocationCapabilityList | string | Mandatory | A list of capabilities at the location.
+LocationCapabilityList | array[object] | Mandatory | List of devices at the specified location and their details.
+status |  string | Mandatory | The overall status of the device, either: Online, Offline, or DeviceError 
+isEnabled | bool | Mandatory | If yes, then the device has been enabled by your application. If no, it is not enabled.
+locator | string | Mandatory | The network ID used to identify the peripheral on the network.
+logicalType | string | Mandatory | The type of device.
+capabilities | array[object] | Mandatory | The actions available to the device at the location.
+
+<!--
 ServiceBusUri | string | Mandatory | The URI for the Service Bus if no webhook is provided.
 ServiceBusTopic | string | Mandatory | The Service Bus Topic to which the message is to be “published” (e.g., on unsolicited messages).
 ServiceBus<br>Subscription | string | Mandatory | Returned if no web hook is provided.
 ServiceBusShared<br>AccessToken | string | Mandatory | Returned if no web hook is provided.
+-->
 
 <aside class="warning">
 An unsuccessful request may return either a 400, 401, 409, 422 error code with an explanatory message. For the general meaning of these responses, see the Error Codes section of this document.

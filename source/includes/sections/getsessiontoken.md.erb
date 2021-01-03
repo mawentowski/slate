@@ -2,17 +2,20 @@
 
 <%= partial "includes/codesnippets/getsessiontoken.md.erb" %>
 
-Request a session token that can be used at your specified location in order to make other API requests, most notably Subscribe.
+Request a session token that can be used at your specified location in order to make other API requests, most notably the Subscribe request that requires a LocationID.
+The LocationID is encoded in the session token.
 
 ### HTTP Request
 
 `POST location/getsessiontoken`
 
+<%= partial "includes/sections/headerparams.md.erb" %>
+
 ### Request Body
 
 Param | Type | O/M | Description
 ------|------|-----|------------
-LocationID | string | Mandatory | The location at which the session token will be used.
+LocationID | string | Mandatory | The location the session token will be used. 
 
 <aside class="success">
 A successful request returns a 200 OK Status, along with a session token and expiry time in the return body. <!-- The method also returns the expiry time so, if needed, it can be tracked and an extension command can be issued.  Dev Guidelines details expiry call, add here or reference in the conceptual documents?-->
@@ -22,9 +25,10 @@ A successful request returns a 200 OK Status, along with a session token and exp
 
 Param | Type | O/M | Description
 ------|------|-----|------------
-sessionToken | string | Mandatory | The session token.
-expires | datetime | Mandatory | UTC time of expiry.
+SessionToken | string | Mandatory | One-time bearer token used to establish a session for a user and is revoked when the token expires. It contains the location at which the session token will be used.
+expires | datetime | Mandatory | UTC time the session token expires.
 
 <aside class="warning">
 An unsuccessful request may return either a 400, 401, or 422 error code with an explanatory message. For the general meaning of these responses, see the Error Codes section of this document.
 </aside>
+

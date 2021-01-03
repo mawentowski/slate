@@ -1,24 +1,20 @@
-## Authorization via Access Token
+## Make API Calls
 
 <%= partial "includes/codesnippets/auth.md.erb" %>
 
-Your application must establish authorization via the Microsoft identity platform's 
-OAuth 2.0 authorization protocol to access our API. To do so, you must include 
-the bearer token retrieved by a GetBearerToken request in the header of all your requests.
+Prior to making your first API call, add the bearer token retrieved by a Request Bearer Token request in the header, as shown below.
+Include it in all your requests for authorization.
 
 <!-- Our web-hosted resources are protected through 
 the Microsoft identity platform that implements OAuth 2.0 authorization protocol. 
 OAuth 2.0 is a method through which your third-party app can access web-hosted 
 resources on behalf of your users. -->
 
-### Header Parameters
-<!-- The Authorization is required, consider a new column for mandatory elements-->
-Parameter | Value | Type | Description
-----------|-------|------|------------
-Content-Type | application/json | string | Media type of the resource.
-Authorization | {{Access Token}} | string | Credential used by your application to access our API.
+<%= partial "includes/sections/headerparams.md.erb" %>
 
 <aside class="notice">
-You must replace <code>{{AccessToken}}</code> in the header of all your requests with the access token returned after sending the GetBearerToken request.
+You must replace <code>{{BearerToken}}</code> in the header of all your requests with the access token returned after sending the GetBearerToken request.
 </aside>
+
+Continue onward to make your first Subscribe call.
 

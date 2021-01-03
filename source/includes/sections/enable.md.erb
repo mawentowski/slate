@@ -20,10 +20,9 @@ The application should disable the device when it receives an AccessExpiry messa
 
 Param | Type | O/M | Description
 ------|------|-----|------------
-Locator | string | Mandatory | The location of the peripheral.
-TransactionId | string | Optional | The TransactionId used by the application.
-SessionToken | string | Optional | The SessionToken received from the previously executed Subscribe request.
-
+locator | string | Mandatory | The network ID used to identify the peripheral on the network.
+TransactionId | string | Optional | The transaction initiated through an API call from your application.
+SessionToken | string | Mandatory | One-time bearer token used to establish a session for a user and is revoked when the token expires. It contains the location at which the session token will be used.
 
 <aside class="success">
 A successful request returns a 200 OK Status and the peripheral is now enabled for scanning and reading.

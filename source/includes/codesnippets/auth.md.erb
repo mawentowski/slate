@@ -3,7 +3,7 @@
 ```shell
 curl POST '_apiEndpoint_' \
 --header 'Content-Type: application/json' \
---header 'Authorization: {{AccessToken}}' \
+--header 'Authorization: {{BearerToken}}' \
 --data-raw '{
     "_jsonObjectkey_": "_keyValue_"
 }'
@@ -12,7 +12,7 @@ curl POST '_apiEndpoint_' \
 ```javascript
 var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
-myHeaders.append("Authorization", "{{AccessToken}}");
+myHeaders.append("Authorization", "{{BearerToken}}");
 
 var raw = JSON.stringify({"_jsonObjectkey_":"{{_jsonObjectkey_}}"});
 
@@ -38,7 +38,7 @@ Request request = new Request.Builder()
   .url("_apiEndpoint_")
   .method("POST", body)
   .addHeader("Content-Type", "application/json")
-  .addHeader("Authorization", "{{AccessToken}}")
+  .addHeader("Authorization", "{{BearerToken}}")
   .build();
 Response response = client.newCall(request).execute();
 ```
@@ -56,7 +56,7 @@ let postData = parameters.data(using: .utf8)
 
 var request = URLRequest(url: URL(string: "_apiEndpoint_")!,timeoutInterval: Double.infinity)
 request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-request.addValue("{{AccessToken}}", forHTTPHeaderField: "Authorization")
+request.addValue("{{BearerToken}}", forHTTPHeaderField: "Authorization")
 
 request.httpMethod = "POST"
 request.httpBody = postData

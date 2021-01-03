@@ -1,7 +1,7 @@
 ```shell
 curl --location -g --request POST 'https://sita-{{Env}}-{{AzRegion}}-app-deviceservice.azurewebsites.net/api/v1/location/unsubscribe' \
 --header 'Content-Type: application/json' \
---header 'Authorization: {{AccessToken}}' \
+--header 'Authorization: {{BearerToken}}' \
 --data-raw '{
 	"SessionToken" : "{{SessionToken}}"
 }'
@@ -10,7 +10,7 @@ curl --location -g --request POST 'https://sita-{{Env}}-{{AzRegion}}-app-devices
 ```javascript
 var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
-myHeaders.append("Authorization", "{{AccessToken}}");
+myHeaders.append("Authorization", "{{BearerToken}}");
 
 var raw = JSON.stringify({"SessionToken":"{{SessionToken}}"});
 
@@ -37,7 +37,7 @@ Request request = new Request.Builder()
   .url("https://sita-{{Env}}-{{AzRegion}}-app-deviceservice.azurewebsites.net/api/v1/location/unsubscribe")
   .method("POST", body)
   .addHeader("Content-Type", "application/json")
-  .addHeader("Authorization", "{{AccessToken}}")
+  .addHeader("Authorization", "{{BearerToken}}")
   .build();
 Response response = client.newCall(request).execute();
 ```
@@ -55,7 +55,7 @@ let postData = parameters.data(using: .utf8)
 
 var request = URLRequest(url: URL(string: "https://sita-{{Env}}-{{AzRegion}}-app-deviceservice.azurewebsites.net/api/v1/location/unsubscribe")!,timeoutInterval: Double.infinity)
 request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-request.addValue("{{AccessToken}}", forHTTPHeaderField: "Authorization")
+request.addValue("{{BearerToken}}", forHTTPHeaderField: "Authorization")
 
 request.httpMethod = "POST"
 request.httpBody = postData
