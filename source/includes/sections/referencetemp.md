@@ -160,7 +160,7 @@ device_ID | string | Mandatory | The location of the peripheral.
 transaction_ID | string | Optional | The transaction_ID used by the application.
 request_ID | string | Mandatory | A unique ID for the command to ensure the same command is not executed multiple times.
 session_token | string | Optional | The session_token received from the previously executed Subscribe request.
-AEACommand | string | Mandatory | An AEA command.
+command | string | Mandatory | An AEA command.
 
 <aside class="success">
 A successful request returns a 200 OK Status indicating the AEA message was successfully sent. 
