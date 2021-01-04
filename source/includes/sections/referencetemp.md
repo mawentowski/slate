@@ -158,7 +158,7 @@ Param | Type | O/M | Description
 ------|------|-----|------------
 device_ID | string | Mandatory | The location of the peripheral.
 transaction_ID | string | Optional | The transaction_ID used by the application.
-RequestId | string | Mandatory | A unique ID for the command to ensure the same command is not executed multiple times.
+request_ID | string | Mandatory | A unique ID for the command to ensure the same command is not executed multiple times.
 session_token | string | Optional | The session_token received from the previously executed Subscribe request.
 AEACommand | string | Mandatory | An AEA command.
 
