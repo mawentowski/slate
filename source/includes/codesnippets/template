@@ -15,7 +15,7 @@
 
 ```json
 {
-    "LocationID": "{{LocationID}}"
+    "location_ID": "{{location_ID}}"
 }
 ```
 
@@ -23,7 +23,7 @@
 
 ```json
 {
-  "sessionToken": "{{sessionToken}}",
+  "session_token": "{{session_token}}",
   "expires": "YYYY-MM-DD",
 }
 ```

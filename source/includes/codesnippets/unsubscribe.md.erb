@@ -1,18 +1,18 @@
 ```shell
 curl --location -g --request POST 'https://sita-{{Env}}-{{AzRegion}}-app-deviceservice.azurewebsites.net/api/v1/location/unsubscribe' \
---header 'Content-Type: application/json' \
---header 'Authorization: {{BearerToken}}' \
+--header 'content_type: application/json' \
+--header 'Authorization: {{bearer_token}}' \
 --data-raw '{
-	"SessionToken" : "{{SessionToken}}"
+	"session_token" : "{{session_token}}"
 }'
 ```
 
 ```javascript
 var myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
-myHeaders.append("Authorization", "{{BearerToken}}");
+myHeaders.append("content_type", "application/json");
+myHeaders.append("Authorization", "{{bearer_token}}");
 
-var raw = JSON.stringify({"SessionToken":"{{SessionToken}}"});
+var raw = JSON.stringify({"session_token":"{{session_token}}"});
 
 var requestOptions = {
   method: 'POST',
@@ -32,12 +32,12 @@ fetch("https://sita-{{Env}}-{{AzRegion}}-app-deviceservice.azurewebsites.net/api
 OkHttpClient client = new OkHttpClient().newBuilder()
   .build();
 MediaType mediaType = MediaType.parse("application/json");
-RequestBody body = RequestBody.create(mediaType, "{\n\t\"SessionToken\" : \"{{SessionToken}}\"\n}");
+RequestBody body = RequestBody.create(mediaType, "{\n\t\"session_token\" : \"{{session_token}}\"\n}");
 Request request = new Request.Builder()
   .url("https://sita-{{Env}}-{{AzRegion}}-app-deviceservice.azurewebsites.net/api/v1/location/unsubscribe")
   .method("POST", body)
-  .addHeader("Content-Type", "application/json")
-  .addHeader("Authorization", "{{BearerToken}}")
+  .addHeader("content_type", "application/json")
+  .addHeader("Authorization", "{{bearer_token}}")
   .build();
 Response response = client.newCall(request).execute();
 ```
@@ -50,12 +50,12 @@ import FoundationNetworking
 
 var semaphore = DispatchSemaphore (value: 0)
 
-let parameters = "{\n\t\"SessionToken\" : \"{{SessionToken}}\"\n}"
+let parameters = "{\n\t\"session_token\" : \"{{session_token}}\"\n}"
 let postData = parameters.data(using: .utf8)
 
 var request = URLRequest(url: URL(string: "https://sita-{{Env}}-{{AzRegion}}-app-deviceservice.azurewebsites.net/api/v1/location/unsubscribe")!,timeoutInterval: Double.infinity)
-request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-request.addValue("{{BearerToken}}", forHTTPHeaderField: "Authorization")
+request.addValue("application/json", forHTTPHeaderField: "content_type")
+request.addValue("{{bearer_token}}", forHTTPHeaderField: "Authorization")
 
 request.httpMethod = "POST"
 request.httpBody = postData
@@ -80,6 +80,6 @@ semaphore.wait()
 
 ```json
 {
-  "SessionToken": "w551UBuls9RmFbtISz6uw551UBuls9RmFbtISz6u", 
+  "session_token": "w551UBuls9RmFbtISz6uw551UBuls9RmFbtISz6u", 
 }
 ```

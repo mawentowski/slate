@@ -1,22 +1,20 @@
 ```shell
-curl --location -g --request POST '{{AADInstance}}/oauth2/token' \
---header 'Content-Type: application/x-www-form-urlencoded' \
---header 'ClientId: {{ClientID}}' \
---header 'ClientSecret: {{ClientSecret}}' \
---header 'Tenant: login.microsoftonline.com' \
---header 'ResourceId: {{ResourceId}}' \
---header 'AADInstance: {{AADInstance}}' \
+curl --location -g --request POST '{{AAD_instance}}/oauth2/token' \
+--header 'content_type: application/x-www-form-urlencoded' \
+--header 'client_ID: {{client_ID}}' \
+--header 'client_secret: {{client_secret}}' \
+--header 'resource_ID: {{resource_ID}}' \
+--header 'AAD_instance: {{AAD_instance}}' \
 --data-raw ''
 ```
 
 ```javascript
 var myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-myHeaders.append("ClientId", "{{ClientID}}");
-myHeaders.append("ClientSecret", "{{ClientSecret}}");
-myHeaders.append("Tenant", "login.microsoftonline.com");
-myHeaders.append("ResourceId", "{{ResourceId}}");
-myHeaders.append("AADInstance", "{{AADInstance}}");
+myHeaders.append("content_type", "application/x-www-form-urlencoded");
+myHeaders.append("client_ID", "{{client_ID}}");
+myHeaders.append("client_secret", "{{client_secret}}");
+myHeaders.append("resource_ID", "{{resource_ID}}");
+myHeaders.append("AAD_instance", "{{AAD_instance}}");
 
 var raw = "";
 
@@ -27,7 +25,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch("{{AADInstance}}/oauth2/token", requestOptions)
+fetch("{{AAD_instance}}/oauth2/token", requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
@@ -39,14 +37,13 @@ OkHttpClient client = new OkHttpClient().newBuilder()
 MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
 RequestBody body = RequestBody.create(mediaType, "");
 Request request = new Request.Builder()
-  .url("{{AADInstance}}/oauth2/token")
+  .url("{{AAD_instance}}/oauth2/token")
   .method("POST", body)
-  .addHeader("Content-Type", "application/x-www-form-urlencoded")
-  .addHeader("ClientId", "{{ClientID}}")
-  .addHeader("ClientSecret", "{{ClientSecret}}")
-  .addHeader("Tenant", "login.microsoftonline.com")
-  .addHeader("ResourceId", "{{ResourceId}}")
-  .addHeader("AADInstance", "{{AADInstance}}")
+  .addHeader("content_type", "application/x-www-form-urlencoded")
+  .addHeader("client_ID", "{{client_ID}}")
+  .addHeader("client_secret", "{{client_secret}}")
+  .addHeader("resource_ID", "{{resource_ID}}")
+  .addHeader("AAD_instance", "{{AAD_instance}}")
   .build();
 Response response = client.newCall(request).execute();
 ```
@@ -59,13 +56,12 @@ import FoundationNetworking
 
 var semaphore = DispatchSemaphore (value: 0)
 
-var request = URLRequest(url: URL(string: "{{AADInstance}}/oauth2/token")!,timeoutInterval: Double.infinity)
-request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-request.addValue("{{ClientID}}", forHTTPHeaderField: "ClientId")
-request.addValue("{{ClientSecret}}", forHTTPHeaderField: "ClientSecret")
-request.addValue("login.microsoftonline.com", forHTTPHeaderField: "Tenant")
-request.addValue("{{ResourceId}}", forHTTPHeaderField: "ResourceId")
-request.addValue("{{AADInstance}}", forHTTPHeaderField: "AADInstance")
+var request = URLRequest(url: URL(string: "{{AAD_instance}}/oauth2/token")!,timeoutInterval: Double.infinity)
+request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "content_type")
+request.addValue("{{client_ID}}", forHTTPHeaderField: "client_ID")
+request.addValue("{{client_secret}}", forHTTPHeaderField: "client_secret")
+request.addValue("{{resource_ID}}", forHTTPHeaderField: "resource_ID")
+request.addValue("{{AAD_instance}}", forHTTPHeaderField: "AAD_instance")
 
 request.httpMethod = "POST"
 
@@ -90,7 +86,7 @@ semaphore.wait()
 {
   "token_type": "Bearer",
   "expires_in": "3600",
-  "resource_ID": "{{ResourceId}}",
-  "access_token": "{{BearerToken}}",
+  "resource_ID": "{{resource_ID}}",
+  "access_token": "{{bearer_token}}",
 }
 ```

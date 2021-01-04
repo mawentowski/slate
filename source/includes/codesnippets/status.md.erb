@@ -1,19 +1,19 @@
 ```shell
 curl --location -g --request POST 'https://sita-{{Env}}-{{AzRegion}}-app-deviceservice.azurewebsites.net/api/v1/location/status' \
---header 'Content-Type: application/json' \
---header 'Authorization: {{BearerToken}}' \
---data-raw '{ "LocatorList" : [], 
-  "TransactionId" : "1", 
-  "SessionToken" : "{{SessionToken}}"
+--header 'content_type: application/json' \
+--header 'Authorization: {{bearer_token}}' \
+--data-raw '{ "device_list" : [], 
+  "transaction_ID" : "1", 
+  "session_token" : "{{session_token}}"
 } '
 ```
 
 ```javascript
 var myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
-myHeaders.append("Authorization", "{{BearerToken}}");
+myHeaders.append("content_type", "application/json");
+myHeaders.append("Authorization", "{{bearer_token}}");
 
-var raw = JSON.stringify({"LocatorList":[],"TransactionId":"1","SessionToken":"{{SessionToken}}"});
+var raw = JSON.stringify({"device_list":[],"transaction_ID":"1","session_token":"{{session_token}}"});
 
 var requestOptions = {
   method: 'POST',
@@ -32,12 +32,12 @@ fetch("https://sita-{{Env}}-{{AzRegion}}-app-deviceservice.azurewebsites.net/api
 OkHttpClient client = new OkHttpClient().newBuilder()
   .build();
 MediaType mediaType = MediaType.parse("application/json");
-RequestBody body = RequestBody.create(mediaType, "{ \"LocatorList\" : [], \n  \"TransactionId\" : \"1\", \n  \"SessionToken\" : \"{{SessionToken}}\"\n} ");
+RequestBody body = RequestBody.create(mediaType, "{ \"device_list\" : [], \n  \"transaction_ID\" : \"1\", \n  \"session_token\" : \"{{session_token}}\"\n} ");
 Request request = new Request.Builder()
   .url("https://sita-{{Env}}-{{AzRegion}}-app-deviceservice.azurewebsites.net/api/v1/location/status")
   .method("POST", body)
-  .addHeader("Content-Type", "application/json")
-  .addHeader("Authorization", "{{BearerToken}}")
+  .addHeader("content_type", "application/json")
+  .addHeader("Authorization", "{{bearer_token}}")
   .build();
 Response response = client.newCall(request).execute();
 ```
@@ -50,12 +50,12 @@ import FoundationNetworking
 
 var semaphore = DispatchSemaphore (value: 0)
 
-let parameters = "{ \"LocatorList\" : [], \n  \"TransactionId\" : \"1\", \n  \"SessionToken\" : \"{{SessionToken}}\"\n} "
+let parameters = "{ \"device_list\" : [], \n  \"transaction_ID\" : \"1\", \n  \"session_token\" : \"{{session_token}}\"\n} "
 let postData = parameters.data(using: .utf8)
 
 var request = URLRequest(url: URL(string: "https://sita-{{Env}}-{{AzRegion}}-app-deviceservice.azurewebsites.net/api/v1/location/status")!,timeoutInterval: Double.infinity)
-request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-request.addValue("{{BearerToken}}", forHTTPHeaderField: "Authorization")
+request.addValue("application/json", forHTTPHeaderField: "content_type")
+request.addValue("{{bearer_token}}", forHTTPHeaderField: "Authorization")
 
 request.httpMethod = "POST"
 request.httpBody = postData
@@ -80,7 +80,7 @@ semaphore.wait()
 
 ```json
 {
-  "LocatorList" : [
+  "device_list" : [
     {
       "device_ID" : "BOH-T1-GATE1-WKS-000.BGR1.BGR1"
     },
@@ -91,8 +91,8 @@ semaphore.wait()
       "device_ID" : "BOH-T1-GATE1-WKS-000.BGR1.BGR1"
     }
   ],
-	"TransactionId" : "1",
-	"SessionToken" : "{{SessionToken}}"
+	"transaction_ID" : "1",
+	"session_token" : "{{session_token}}"
 }
 ```
 
@@ -100,7 +100,7 @@ semaphore.wait()
 
 ```json
 {
-	"DeviceStatusList" : [
+	"device_status_list" : [
     {
       "BOH-T1-GATE1-WKS-000.BGR1.BGR1" : ”OK”
     },
@@ -111,6 +111,6 @@ semaphore.wait()
       "BOH-T1-GATE1-WKS-000.BGR1.BGR1" : ”OK”
     }
   ],
-	"TransactionId": "a3056332-1506-4576-949f-7b2272ebd845", 
+	"transaction_ID": "a3056332-1506-4576-949f-7b2272ebd845", 
 }
 ```

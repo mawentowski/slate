@@ -12,7 +12,7 @@ Receives a session token that can be used at the location specified.
 
 Param | Type | Optional/Mandatory | Description
 ------|-------|-------------------|------------
-LocationID | string | Mandatory | The location at which the session token will be used.
+location_ID | string | Mandatory | The location at which the session token will be used.
 
 <aside class="success">
 A successful call returns a 200 OK Status, along with a session token and expiry time in the return body. <!-- The method also returns the expiry time so, if needed, it can be tracked and an extension command can be issued.  Dev Guidelines details expiry call, add here or reference in the conceptual documents?-->
@@ -22,7 +22,7 @@ A successful call returns a 200 OK Status, along with a session token and expiry
 
 Param | Type | Optional/Mandatory | Description
 ------|-------|-------------------|------------
-sessionToken | string | Mandatory | The session token
+session_token | string | Mandatory | The session token
 expires | datetime | Mandatory | UTC time of expiry
 
 <aside class="warning">

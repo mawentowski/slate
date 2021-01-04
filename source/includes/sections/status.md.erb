@@ -4,7 +4,7 @@
 
 Request the status of peripherals.  
 
-This is an information command and the status will still be returned even if the peripheral is acquired for exclusive access by another application. If the status of all peripherals is desired, leave the LocatorList empty.
+This is an information command and the status will still be returned even if the peripheral is acquired for exclusive access by another application. If the status of all peripherals is desired, leave the device_list empty.
 
 ### HTTP Request
 
@@ -15,9 +15,9 @@ For the sake of exercising the API, you can specify any numerical value as the t
 
 Param | Type | O/M | Description
 ------|------|-----|------------
-LocatorList | string | Mandatory | A list comprised of one or more devices.
-TransactionId | string | Optional | The transaction initiated through an API call from your application.
-SessionToken | string | Mandatory | One-time bearer token used to establish a session for a user and is revoked when the token expires. It contains the location at which the session token will be used.
+device_list | string | Mandatory | A list comprised of one or more devices.
+transaction_ID | string | Optional | The transaction initiated through an API call from your application.
+session_token | string | Mandatory | One-time bearer token used to establish a session for a user and is revoked when the token expires. It contains the location at which the session token will be used.
 
 <aside class="success">
 A successful request returns a status of 200 OK and the status message will either be sent to 1) the endpoint defined by the return payload from the Subscribe request for the specified location, or 2) to the service bus. The second scenario occurs when a webhook was not specified in the previously executed Subscribe request.
@@ -27,8 +27,8 @@ A successful request returns a status of 200 OK and the status message will eith
 
 Param | Type | Optional/Mandatory | Description
 ------|-------|-------------------|------------
-DeviceStatusList | string | Mandatory | A list of devices and their statuses. Possible values are Online, Offline, or DeviceError.
-TransactionId | string | Optional | The transaction initiated through an API call from your application.
+device_status_list | string | Mandatory | A list of devices and their statuses. Possible values are Online, Offline, or DeviceError.
+transaction_ID | string | Optional | The transaction initiated through an API call from your application.
 
 <aside class="warning">
 An unsuccessful request may return a 400 error code with an explanatory message. For the general meaning of these responses, see the Error Codes section of this document.

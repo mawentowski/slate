@@ -7,10 +7,10 @@ You are subscribing your application
 Subscribe subscribes to the location contained in the session token and returns
 a capability list for that location. This is a list of devices at the location and their capabilties
 and also their statues
-The locator is the device
+The device_ID is the device
 
 ## Status
-You enter locators (devices) into a locator list to get statuses for one or multiple devices.
+You enter device_IDs (devices) into a device_ID list to get statuses for one or multiple devices.
 device_ID I believe is the IP address on a local network that gives them internet access
 You may need to list responses
 Example response:
@@ -42,7 +42,7 @@ Removed fields:
 hasEnabled -- relates to one than one app
 additionalSettings
 service bus stuff
-locationCapabilityList
+device_details
 webhooks
 tenant
 
@@ -64,8 +64,8 @@ Many templates I have seen do not have Example Value / Model
 
 <%= partial "includes/codesnippets/getsessiontoken.md.erb" %>
 
-Request a session token that can be used at your specified location in order to make other API requests, most notably the Subscribe request that requires a LocationID.
-The LocationID is encoded in the session token.'
+Request a session token that can be used at your specified location in order to make other API requests, most notably the Subscribe request that requires a location_ID.
+The location_ID is encoded in the session token.'
 
 Subscribe: 
 <!-- Subscribe to the location (subscribes a peripheral to a location) which reserves it to the session token?
@@ -82,7 +82,7 @@ as it is decoded and checked during the Subscribe call.
 
 Request the status of peripherals.  
 
-This is an information command and the status will still be returned even if the peripheral is acquired for exclusive access by another application. If the status of all peripherals is desired, leave the LocatorList empty.
+This is an information command and the status will still be returned even if the peripheral is acquired for exclusive access by another application. If the status of all peripherals is desired, leave the device_list empty.
 
 ### HTTP Request
 
@@ -93,9 +93,9 @@ For the sake of exercising the API, you can specify any numerical value as the t
 
 Param | Type | O/M | Description
 ------|------|-----|------------
-LocatorList | string | Mandatory | Retrieves the real-time status of the peripherals identified in the LocatorList.
-TransactionId | string | Optional | The TransactionId used by the application.
-SessionToken | string | Optional | The SessionToken received from the previously executed Subscribe request.
+device_list | string | Mandatory | Retrieves the real-time status of the peripherals identified in the device_list.
+transaction_ID | string | Optional | The transaction_ID used by the application.
+session_token | string | Optional | The session_token received from the previously executed Subscribe request.
 
 <aside class="success">
 A successful request returns a status of 200 OK and the status message will either be sent to 1) the endpoint defined by the return payload from the Subscribe request for the specified location, or 2) to the service bus. The second scenario occurs when a webhook was not specified in the previously executed Subscribe request.
@@ -125,8 +125,8 @@ The application should disable the device when it receives an AccessExpiry messa
 Param | Type | O/M | Description
 ------|------|-----|------------
 device_ID | string | Mandatory | The location of the peripheral.
-TransactionId | string | Optional | The TransactionId used by the application.
-SessionToken | string | Optional | The SessionToken received from the previously executed Subscribe request.
+transaction_ID | string | Optional | The transaction_ID used by the application.
+session_token | string | Optional | The session_token received from the previously executed Subscribe request.
 
 
 <aside class="success">
@@ -157,9 +157,9 @@ Send an AEA command to a peripheral.
 Param | Type | O/M | Description
 ------|------|-----|------------
 device_ID | string | Mandatory | The location of the peripheral.
-TransactionId | string | Optional | The TransactionId used by the application.
+transaction_ID | string | Optional | The transaction_ID used by the application.
 RequestId | string | Mandatory | A unique ID for the command to ensure the same command is not executed multiple times.
-SessionToken | string | Optional | The SessionToken received from the previously executed Subscribe request.
+session_token | string | Optional | The session_token received from the previously executed Subscribe request.
 AEACommand | string | Mandatory | An AEA command.
 
 <aside class="success">
@@ -193,8 +193,8 @@ If the peripheral is not disabled, this request will disable the peripheral.
 Param | Type | O/M | Description
 ------|------|-----|------------
 device_ID | string | Mandatory | The location of the peripheral.
-TransactionId | string | Mandatory | Sent by the application.
-SessionToken | string | Mandatory | The session token received from the subscription call.
+transaction_ID | string | Mandatory | Sent by the application.
+session_token | string | Mandatory | The session token received from the subscription call.
 
 <aside class="success">
 A successful request returns a 200 OK Status if the Disable request succeeds, or if there is no outstanding Enable request.
@@ -222,7 +222,7 @@ Release all peripherals reserved by the session and disable (or cancel) all outs
 
 Param | Type | O/M | Description
 ------|------|-----|------------
-SessionToken | string | Mandatory | The location at which the session token will be used.
+session_token | string | Mandatory | The location at which the session token will be used.
 
 <aside class="success">
 A successful request returns a status of 204: No content.

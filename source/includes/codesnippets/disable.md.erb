@@ -1,21 +1,21 @@
 ```shell
 curl --location -g --request POST 'https://sita-{{Env}}-{{AzRegion}}-apimanagement.azure-api.net/api/v1/peripheral/disable' \
---header 'Authorization: {{BearerToken}}' \
---header 'Content-Type: application/json' \
+--header 'Authorization: {{bearer_token}}' \
+--header 'content_type: application/json' \
 --data-raw '{ 
  "device_ID" : "{{device_ID}}", 
- "TransactionId" : "516fa79b-5264-43a0-a5f3-7e861c6a0cb4", 
- "SessionToken" : "{{SessionToken}}"
+ "transaction_ID" : "516fa79b-5264-43a0-a5f3-7e861c6a0cb4", 
+ "session_token" : "{{session_token}}"
 } 
 '
 ```
 
 ```javascript
 var myHeaders = new Headers();
-myHeaders.append("Authorization", "{{BearerToken}}");
-myHeaders.append("Content-Type", "application/json");
+myHeaders.append("Authorization", "{{bearer_token}}");
+myHeaders.append("content_type", "application/json");
 
-var raw = JSON.stringify({"device_ID":"{{device_ID}}","TransactionId":"bd3359e6-0846-4e70-b909-aa5c3f9f1547","SessionToken":"{{SessionToken}}"});
+var raw = JSON.stringify({"device_ID":"{{device_ID}}","transaction_ID":"bd3359e6-0846-4e70-b909-aa5c3f9f1547","session_token":"{{session_token}}"});
 
 var requestOptions = {
   method: 'POST',
@@ -34,12 +34,12 @@ fetch("https://sita-{{Env}}-{{AzRegion}}-apimanagement.azure-api.net/api/v1/peri
 OkHttpClient client = new OkHttpClient().newBuilder()
   .build();
 MediaType mediaType = MediaType.parse("application/json");
-RequestBody body = RequestBody.create(mediaType, "{ \r\n \"device_ID\" : \"{{device_ID}}\", \r\n \"TransactionId\" : \"b90a1881-f9e4-439f-88cc-6ee46c243586\", \r\n \"SessionToken\" : \"{{SessionToken}}\"\r\n} \r\n");
+RequestBody body = RequestBody.create(mediaType, "{ \r\n \"device_ID\" : \"{{device_ID}}\", \r\n \"transaction_ID\" : \"b90a1881-f9e4-439f-88cc-6ee46c243586\", \r\n \"session_token\" : \"{{session_token}}\"\r\n} \r\n");
 Request request = new Request.Builder()
   .url("https://sita-{{Env}}-{{AzRegion}}-apimanagement.azure-api.net/api/v1/peripheral/disable")
   .method("POST", body)
-  .addHeader("Authorization", "{{BearerToken}}")
-  .addHeader("Content-Type", "application/json")
+  .addHeader("Authorization", "{{bearer_token}}")
+  .addHeader("content_type", "application/json")
   .build();
 Response response = client.newCall(request).execute();
 ```
@@ -52,12 +52,12 @@ import FoundationNetworking
 
 var semaphore = DispatchSemaphore (value: 0)
 
-let parameters = "{ \r\n \"device_ID\" : \"{{device_ID}}\", \r\n \"TransactionId\" : \"ae573423-addc-45aa-a24a-a6b668c5ec74\", \r\n \"SessionToken\" : \"{{SessionToken}}\"\r\n} \r\n"
+let parameters = "{ \r\n \"device_ID\" : \"{{device_ID}}\", \r\n \"transaction_ID\" : \"ae573423-addc-45aa-a24a-a6b668c5ec74\", \r\n \"session_token\" : \"{{session_token}}\"\r\n} \r\n"
 let postData = parameters.data(using: .utf8)
 
 var request = URLRequest(url: URL(string: "https://sita-{{Env}}-{{AzRegion}}-apimanagement.azure-api.net/api/v1/peripheral/disable")!,timeoutInterval: Double.infinity)
-request.addValue("{{BearerToken}}", forHTTPHeaderField: "Authorization")
-request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+request.addValue("{{bearer_token}}", forHTTPHeaderField: "Authorization")
+request.addValue("application/json", forHTTPHeaderField: "content_type")
 
 request.httpMethod = "POST"
 request.httpBody = postData
@@ -83,8 +83,8 @@ semaphore.wait()
 ```json
 { 
     "device_ID" : "{{device_ID}}", 
-    "TransactionId" : "{{$guid}}", 
-    "SessionToken" : "{{SessionToken}}"
+    "transaction_ID" : "{{$guid}}", 
+    "session_token" : "{{session_token}}"
 }
 ```
 

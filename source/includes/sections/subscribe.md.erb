@@ -19,7 +19,7 @@ Insert the session token into the body of this request. You should have retrieve
 
 Param | Type | O/M | Description
 ------|-------|-------------------|------------
-SessionToken | string | Mandatory | One-time bearer token used to establish a session for a user and is revoked when the token expires. It contains the location at which the session token will be used.
+session_token | string | Mandatory | One-time bearer token used to establish a session for a user and is revoked when the token expires. It contains the location at which the session token will be used.
 
 <!-- Webhook | string | Optional | Fill in this field to receive messages via the webhook. No service bus information will be returned.
 WebhookSecurity<br>Token | string | Optional | See above. -->
@@ -38,12 +38,12 @@ such as status, if they are enabled, their type, and actions available to each d
 
 Param | Type | O/M | Description
 ------|------|--------------------|------------
-LocationCapabilityList | array[object] | Mandatory | List of devices at the specified location and their details.
-status |  string | Mandatory | The overall status of the device, either: Online, Offline, or DeviceError 
-isEnabled | bool | Mandatory | If yes, then the device has been enabled by your application. If no, it is not enabled.
-locator | string | Mandatory | The network ID used to identify the peripheral on the network.
-logicalType | string | Mandatory | The type of device.
-capabilities | array[object] | Mandatory | The actions available to the device at the location.
+device_details | array[object] | Mandatory | List of devices at the specified location and their details.
+device_status |  string | Mandatory | The overall status of the device, either: Online, Offline, or DeviceError 
+is_enabled | bool | Mandatory | If yes, then the device has been enabled by your application. If no, it is not enabled.
+device_ID | string | Mandatory | The network ID used to identify the peripheral on the network.
+device_type | string | Mandatory | The type of device.
+device_actions | array[object] | Mandatory | The actions available to the device at the location.
 
 <!--
 ServiceBusUri | string | Mandatory | The URI for the Service Bus if no webhook is provided.

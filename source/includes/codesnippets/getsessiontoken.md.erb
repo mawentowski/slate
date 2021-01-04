@@ -1,18 +1,18 @@
 ```shell
 curl --location -g --request POST 'https://sita-{{Env}}-{{AzRegion}}-app-deviceservice.azurewebsites.net/api/v1/location/getsessiontoken' \
---header 'Content-Type: application/json' \
---header 'Authorization: {{AccessToken}}' \
+--header 'content_type: application/json' \
+--header 'Authorization: {{bearer_token}}' \
 --data-raw '{
-    "LocationID": "{{LocationID}}"
+    "location_ID": "{{location_ID}}"
 }'
 ```
 
 ```javascript
 var myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
-myHeaders.append("Authorization", "{{AccessToken}}");
+myHeaders.append("content_type", "application/json");
+myHeaders.append("Authorization", "{{bearer_token}}");
 
-var raw = JSON.stringify({"LocationID":"{{LocationID}}"});
+var raw = JSON.stringify({"location_ID":"{{location_ID}}"});
 
 var requestOptions = {
   method: 'POST',
@@ -31,12 +31,12 @@ fetch("https://sita-{{Env}}-{{AzRegion}}-app-deviceservice.azurewebsites.net/api
 OkHttpClient client = new OkHttpClient().newBuilder()
   .build();
 MediaType mediaType = MediaType.parse("application/json");
-RequestBody body = RequestBody.create(mediaType, "{\n    \"LocationID\": \"{{LocationID}}\"\n}");
+RequestBody body = RequestBody.create(mediaType, "{\n    \"location_ID\": \"{{location_ID}}\"\n}");
 Request request = new Request.Builder()
   .url("https://sita-{{Env}}-{{AzRegion}}-app-deviceservice.azurewebsites.net/api/v1/location/getsessiontoken")
   .method("POST", body)
-  .addHeader("Content-Type", "application/json")
-  .addHeader("Authorization", "{{AccessToken}}")
+  .addHeader("content_type", "application/json")
+  .addHeader("Authorization", "{{bearer_token}}")
   .build();
 Response response = client.newCall(request).execute();
 ```
@@ -49,12 +49,12 @@ import FoundationNetworking
 
 var semaphore = DispatchSemaphore (value: 0)
 
-let parameters = "{\n    \"LocationID\": \"{{LocationID}}\"\n}"
+let parameters = "{\n    \"location_ID\": \"{{location_ID}}\"\n}"
 let postData = parameters.data(using: .utf8)
 
 var request = URLRequest(url: URL(string: "https://sita-{{Env}}-{{AzRegion}}-app-deviceservice.azurewebsites.net/api/v1/location/getsessiontoken")!,timeoutInterval: Double.infinity)
-request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-request.addValue("{{AccessToken}}", forHTTPHeaderField: "Authorization")
+request.addValue("application/json", forHTTPHeaderField: "content_type")
+request.addValue("{{bearer_token}}", forHTTPHeaderField: "Authorization")
 
 request.httpMethod = "POST"
 request.httpBody = postData
@@ -79,7 +79,7 @@ semaphore.wait()
 
 ```json
 {
-    "LocationID": "{{LocationID}}"
+    "location_ID": "{{location_ID}}"
 }
 ```
 
@@ -87,7 +87,7 @@ semaphore.wait()
 
 ```json
 {
-  "sessionToken": "{{SessionToken}}",
+  "session_token": "{{session_token}}",
   "expires": "YYYY-MM-DD",
 }
 ```
