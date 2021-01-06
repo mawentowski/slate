@@ -1,5 +1,5 @@
 ```shell
-curl --location -g --request POST 'https://sita-{{Env}}-{{AzRegion}}-app-deviceservice.azurewebsites.net/api/v1/location/subscribe' \
+curl --location --request POST 'https://www.smartinventory/api/area/enroll' \
 --header 'content_type: application/json' \
 --header 'Authorization: {{bearer_token}}' \
 --data-raw '{
@@ -21,7 +21,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch("https://sita-{{Env}}-{{AzRegion}}-app-deviceservice.azurewebsites.net/api/v1/location/subscribe", requestOptions)
+fetch("https://www.smartinventory/api/area/enroll", requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
@@ -33,7 +33,7 @@ OkHttpClient client = new OkHttpClient().newBuilder()
 MediaType mediaType = MediaType.parse("application/json");
 RequestBody body = RequestBody.create(mediaType, "{\n\t\"session_token\" : \"{{session_token}}\"\n}");
 Request request = new Request.Builder()
-  .url("https://sita-{{Env}}-{{AzRegion}}-app-deviceservice.azurewebsites.net/api/v1/location/subscribe")
+  .url("https://www.smartinventory/api/area/enroll")
   .method("POST", body)
   .addHeader("content_type", "application/json")
   .addHeader("Authorization", "{{bearer_token}}")
@@ -52,7 +52,7 @@ var semaphore = DispatchSemaphore (value: 0)
 let parameters = "{\n\t\"session_token\" : \"{{session_token}}\"\n}"
 let postData = parameters.data(using: .utf8)
 
-var request = URLRequest(url: URL(string: "https://sita-{{Env}}-{{AzRegion}}-app-deviceservice.azurewebsites.net/api/v1/location/subscribe")!,timeoutInterval: Double.infinity)
+var request = URLRequest(url: URL(string: "https://www.smartinventory/api/area/enroll")!,timeoutInterval: Double.infinity)
 request.addValue("application/json", forHTTPHeaderField: "content_type")
 request.addValue("{{bearer_token}}", forHTTPHeaderField: "Authorization")
 
@@ -89,29 +89,29 @@ semaphore.wait()
 {
   "device_details": [
     {
-      "device_status": "NotReachable",
+      "device_status": "Online",
       "is_enabled": false,
-      "last_updated": "2019-07-05T13:16:04.1515931Z",
-      "device_ID": "BOH-TEST-KIOSK-002.LSR1",
-      "device_type": "Scanner",
-      "device_actions": [
-        "ReadBarcode"
-      ],
+      "last_updated": "2020-04-04T14:13:05.2627022J",
+      "device_ID": "MBA-PROD-LSR-001.ATR1",
+      "device_type": "Laser Barcode Scanner",
+      "device_actions": "read_2D_barcode"
     },
     {
-      "device_status": "NotReachable",
+      "device_status": "Error",
       "is_enabled": false,
-      "last_updated": "2019-07-05T13:16:04.1515931Z",
-      "detailedDeviceStatus": {
-        "mediaStatus": "Unknown",
-        "binStatus": "Unknown",
-        "lineStatus": "Unknown"
-      },
-      "device_ID": "BOH-TEST-KIOSK-002.BTP1",
-      "device_type": "DocumentPrinter",
-      "device_actions": [
-        "PrintBagTag"
-      ],
+      "last_updated": "2020-02-01T24:57:16.3723921T",
+      "device_ID": "MBA-PROD-RFID-002.ATR3",
+      "device_type": "RFID Scanner",
+      "device_actions": "read_RFID_tags"
+    },
+    {
+      "device_status": "Offline",
+      "printer_status": 
+      "is_enabled": false,
+      "last_updated": "2020-02-01I44:13:02.3668319Z1",
+      "device_ID": "MBA-PROD-DTP-003.ATR4",
+      "device_type": "Direct Thermal Printer",
+      "device_actions": "print_product_label
     }
   ],
 }

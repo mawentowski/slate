@@ -1,13 +1,82 @@
 ```shell
+curl --location --request POST 'https://www.smartinventory/api/device/sendorder' \
+--header 'Authorization: {{AccessToken}}' \
+--header 'content_type: application/json' \
+--data-raw '{ 
+ "device_ID" : "{{device_ID}}", 
+ "transaction_ID" : "3017d124-1367-49a4-b4d1-885482a1dd0d", 
+ "RequestID" : "54278031-edd5-4be2-950a-693223a7be72", 
+ "session_token" : "{{session_token}}",
+ "command" : "QUQ7TUcjUCNBSGVsbG8="
+} 
+'
 ```
 
 ```javascript
+var myHeaders = new Headers();
+myHeaders.append("Authorization", "{{AccessToken}}");
+myHeaders.append("content_type", "application/json");
+
+var raw = JSON.stringify({"device_ID":"{{device_ID}}","transaction_ID":"f68ec4d1-1c6e-441b-8c4a-a07095ec9142","RequestID":"d2cbc0f1-b8d6-4207-8ddc-f9de83fbab81","session_token":"{{session_token}}","command":"QUQ7TUcjUCNBSGVsbG8="});
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
+
+fetch("https://www.smartinventory/api/device/sendorder", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
 ```
 
 ```java
+OkHttpClient client = new OkHttpClient().newBuilder()
+  .build();
+MediaType mediaType = MediaType.parse("application/json");
+RequestBody body = RequestBody.create(mediaType, "{ \r\n \"device_ID\" : \"{{device_ID}}\", \r\n \"transaction_ID\" : \"930206be-57ec-4073-879d-bd4c4d4986da\", \r\n \"RequestID\" : \"4bc03c24-0bf0-4642-87d8-6db9302777cc\", \r\n \"session_token\" : \"{{session_token}}\",\r\n \"command\" : \"QUQ7TUcjUCNBSGVsbG8=\"\r\n} \r\n");
+Request request = new Request.Builder()
+  .url("https://www.smartinventory/api/device/sendorder")
+  .method("POST", body)
+  .addHeader("Authorization", "{{AccessToken}}")
+  .addHeader("content_type", "application/json")
+  .build();
+Response response = client.newCall(request).execute();
 ```
 
 ```swift
+import Foundation
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
+
+var semaphore = DispatchSemaphore (value: 0)
+
+let parameters = "{ \r\n \"device_ID\" : \"{{device_ID}}\", \r\n \"transaction_ID\" : \"08eb4cea-d9d4-46e6-bf6f-065efa6c505c\", \r\n \"RequestID\" : \"7d19c106-2ca1-4864-b698-8fa97ac4a692\", \r\n \"session_token\" : \"{{session_token}}\",\r\n \"command\" : \"QUQ7TUcjUCNBSGVsbG8=\"\r\n} \r\n"
+let postData = parameters.data(using: .utf8)
+
+var request = URLRequest(url: URL(string: "https://www.smartinventory/api/device/sendorder")!,timeoutInterval: Double.infinity)
+request.addValue("{{AccessToken}}", forHTTPHeaderField: "Authorization")
+request.addValue("application/json", forHTTPHeaderField: "content_type")
+
+request.httpMethod = "POST"
+request.httpBody = postData
+
+let task = URLSession.shared.dataTask(with: request) { data, response, error in 
+  guard let data = data else {
+    print(String(describing: error))
+    semaphore.signal()
+    return
+  }
+  print(String(data: data, encoding: .utf8)!)
+  semaphore.signal()
+}
+
+task.resume()
+semaphore.wait()
+
 ```
 
 
