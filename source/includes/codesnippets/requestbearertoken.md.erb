@@ -1,10 +1,9 @@
 ```shell
 curl --location --request POST 'https://your_domain/oauth/token' \
 --header 'content_type: application/x-www-form-urlencoded' \
+--header 'resource_ID: {{resource_ID}}' \
 --header 'client_ID: {{client_ID}}' \
 --header 'client_secret: {{client_secret}}' \
---header 'resource_ID: {{resource_ID}}' \
---header 'AAD_instance: {{AAD_instance}}' \
 --data-raw ''
 ```
 
@@ -12,9 +11,8 @@ curl --location --request POST 'https://your_domain/oauth/token' \
 var myHeaders = new Headers();
 myHeaders.append("content_type", "application/x-www-form-urlencoded");
 myHeaders.append("client_ID", "{{client_ID}}");
-myHeaders.append("client_secret", "{{client_secret}}");
 myHeaders.append("resource_ID", "{{resource_ID}}");
-myHeaders.append("AAD_instance", "{{AAD_instance}}");
+myHeaders.append("client_secret", "{{client_secret}}");
 
 var raw = "";
 
@@ -41,9 +39,8 @@ Request request = new Request.Builder()
   .method("POST", body)
   .addHeader("content_type", "application/x-www-form-urlencoded")
   .addHeader("client_ID", "{{client_ID}}")
-  .addHeader("client_secret", "{{client_secret}}")
   .addHeader("resource_ID", "{{resource_ID}}")
-  .addHeader("AAD_instance", "{{AAD_instance}}")
+  .addHeader("client_secret", "{{client_secret}}")
   .build();
 Response response = client.newCall(request).execute();
 ```
@@ -58,10 +55,9 @@ var semaphore = DispatchSemaphore (value: 0)
 
 var request = URLRequest(url: URL(string: "https://your_domain/oauth/token")!,timeoutInterval: Double.infinity)
 request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "content_type")
+request.addValue("{{resource_ID}}", forHTTPHeaderField: "resource_ID")
 request.addValue("{{client_ID}}", forHTTPHeaderField: "client_ID")
 request.addValue("{{client_secret}}", forHTTPHeaderField: "client_secret")
-request.addValue("{{resource_ID}}", forHTTPHeaderField: "resource_ID")
-request.addValue("{{AAD_instance}}", forHTTPHeaderField: "AAD_instance")
 
 request.httpMethod = "POST"
 
@@ -85,8 +81,8 @@ semaphore.wait()
 ```json
 {
   "token_type": "Bearer",
-  "expires_in": "3600",
-  "resource_ID": "{{resource_ID}}",
+  "expires_in": "4200",
+  
   "access_token": "{{bearer_token}}",
 }
 ```

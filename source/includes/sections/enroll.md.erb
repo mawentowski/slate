@@ -1,0 +1,51 @@
+## Enroll
+
+<%= partial "includes/codesnippets/enroll.md.erb" %>
+
+<!-- enroll to the location (enrolls a peripheral to a location) which reserves it to the session token?
+Then unenroll to release all peripherals reserved by session token? -->
+
+Enroll to the area encoded in your session token. The only required action is to include it in the request body.
+It is decoded and checked during the enroll call.
+
+<!-- This returns the last known status of the logical type Scanner with the capability to read barcodes. -->
+
+### HTTP Request
+
+`POST area/enroll`
+
+### Request Body
+
+Param | Type | O/M | Description
+------|-------|-------------------|------------
+session_token | string | Mandatory | One-time token used to establish a session for a user and is revoked when the token expires. It contains the location at which the session token will be used.
+
+<!-- Webhook | string | Optional | Fill in this field to receive messages via the webhook. No service bus information will be returned.
+WebhookSecurity<br>Token | string | Optional | See above. -->
+
+<aside class="success">
+A successful request returns a status of 200 OK and the body of the response will contain the device details for the enrolled area.
+<!-- Add link here. The JSON response is the only thing not included here, 
+so maybe you do not need a link to the conceptual guide-->
+
+</aside>
+
+### Response
+The response returns the `device_details` object that lists the devices at the specified location and their details
+such as their state, if they are activated, their type, and actions available to each device.
+
+Param | Type | O/M | Description
+------|------|--------------------|------------
+device_details | array[object] | Mandatory | List of devices at the specified area and their details.
+device_state |  string | Mandatory | The overall state of the device, either: `Online`, `Offline`, or `Error`.
+is_activated | bool | Mandatory | If yes, then the device has been activated by your application. If no, it is not activated.
+device_ID | string | Mandatory | The network ID used to identify the device on the network.
+device_type | string | Mandatory | The type of device, either `Laser barcode scanner`, `RFID Scanner`, or `Direct Thermal Printer`.
+device_actions | array[object] | Mandatory | The actions available to the device at the location. Either `read_2D_barcode`, `read_RFID_tag`, or `print_product_label`.
+
+<aside class="warning">
+An unsuccessful request may return either a 400, 401, 409, 422 error code with an explanatory message. For the general meaning of these responses, see the Error Codes section of this document.
+</aside>
+
+
+

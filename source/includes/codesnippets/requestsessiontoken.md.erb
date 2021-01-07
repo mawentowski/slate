@@ -1,11 +1,10 @@
 ```shell
-curl --location --request POST 'https://www.smartinventory/api/area/requeststate' \
+curl --location --request POST 'https://www.smartinventory/api/area/requestsessiontoken' \
 --header 'content_type: application/json' \
 --header 'Authorization: {{bearer_token}}' \
---data-raw '{ "device_list" : [], 
-  "transaction_ID" : "1", 
-  "session_token" : "{{session_token}}"
-} '
+--data-raw '{
+    "area_ID": "{{area_ID}}"
+}'
 ```
 
 ```javascript
@@ -13,7 +12,7 @@ var myHeaders = new Headers();
 myHeaders.append("content_type", "application/json");
 myHeaders.append("Authorization", "{{bearer_token}}");
 
-var raw = JSON.stringify({"device_list":[],"transaction_ID":"1","session_token":"{{session_token}}"});
+var raw = JSON.stringify({"area_ID":"{{area_ID}}"});
 
 var requestOptions = {
   method: 'POST',
@@ -22,7 +21,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch("https://www.smartinventory/api/area/requeststate", requestOptions)
+fetch("https://www.smartinventory/api/area/requestsessiontoken", requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
@@ -32,9 +31,9 @@ fetch("https://www.smartinventory/api/area/requeststate", requestOptions)
 OkHttpClient client = new OkHttpClient().newBuilder()
   .build();
 MediaType mediaType = MediaType.parse("application/json");
-RequestBody body = RequestBody.create(mediaType, "{ \"device_list\" : [], \n  \"transaction_ID\" : \"1\", \n  \"session_token\" : \"{{session_token}}\"\n} ");
+RequestBody body = RequestBody.create(mediaType, "{\n    \"area_ID\": \"{{area_ID}}\"\n}");
 Request request = new Request.Builder()
-  .url("https://www.smartinventory/api/area/requeststate")
+  .url("https://www.smartinventory/api/area/requestsessiontoken")
   .method("POST", body)
   .addHeader("content_type", "application/json")
   .addHeader("Authorization", "{{bearer_token}}")
@@ -50,10 +49,10 @@ import FoundationNetworking
 
 var semaphore = DispatchSemaphore (value: 0)
 
-let parameters = "{ \"device_list\" : [], \n  \"transaction_ID\" : \"1\", \n  \"session_token\" : \"{{session_token}}\"\n} "
+let parameters = "{\n    \"area_ID\": \"{{area_ID}}\"\n}"
 let postData = parameters.data(using: .utf8)
 
-var request = URLRequest(url: URL(string: "https://www.smartinventory/api/area/requeststate")!,timeoutInterval: Double.infinity)
+var request = URLRequest(url: URL(string: "https://www.smartinventory/api/area/requestsessiontoken")!,timeoutInterval: Double.infinity)
 request.addValue("application/json", forHTTPHeaderField: "content_type")
 request.addValue("{{bearer_token}}", forHTTPHeaderField: "Authorization")
 
@@ -80,19 +79,7 @@ semaphore.wait()
 
 ```json
 {
-  "device_list" : [
-    {
-      "device_ID" : "MBA-PROD-LSR-001.ATR1"
-    },
-    {
-      "device_ID" : "MBA-PROD-RFID-002.ATR3"
-    },
-    {
-      "device_ID" : "MBA-PROD-DTP-003.ATR4"
-    }
-  ],
-	"transaction_ID" : "1",
-	"session_token" : "{{session_token}}"
+    "area_ID": "{{area_ID}}"
 }
 ```
 
@@ -100,17 +87,8 @@ semaphore.wait()
 
 ```json
 {
-	"device_status_list" : [
-    {
-      "device_ID" : "MBA-PROD-LSR-001.ATR1" : ”Online”
-    },
-    {
-      "device_ID" : "MBA-PROD-RFID-002.ATR3" : ”Error”
-    },
-    {
-      "device_ID" : "MBA-PROD-DTP-003.ATR4" : ”Offline”
-    }
-  ],
-	"transaction_ID": "ke9304kfl-0395-01893-934j-91234091304940", 
+  "session_token": "{{session_token}}",
+  "expires": "YYYY-MM-DD",
 }
 ```
+

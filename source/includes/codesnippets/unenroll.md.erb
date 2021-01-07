@@ -1,9 +1,9 @@
 ```shell
-curl --location --request POST 'https://www.smartinventory/api/area/requestsessiontoken' \
+curl --location --request POST 'https://www.smartinventory/api/area/unenroll' \
 --header 'content_type: application/json' \
 --header 'Authorization: {{bearer_token}}' \
 --data-raw '{
-    "location_ID": "{{location_ID}}"
+	"session_token" : "{{session_token}}"
 }'
 ```
 
@@ -12,7 +12,7 @@ var myHeaders = new Headers();
 myHeaders.append("content_type", "application/json");
 myHeaders.append("Authorization", "{{bearer_token}}");
 
-var raw = JSON.stringify({"location_ID":"{{location_ID}}"});
+var raw = JSON.stringify({"session_token":"{{session_token}}"});
 
 var requestOptions = {
   method: 'POST',
@@ -21,19 +21,20 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch("https://www.smartinventory/api/area/requestsessiontoken", requestOptions)
+fetch("https://www.smartinventory/api/area/unenroll", requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
+
 ```
 
 ```java
 OkHttpClient client = new OkHttpClient().newBuilder()
   .build();
 MediaType mediaType = MediaType.parse("application/json");
-RequestBody body = RequestBody.create(mediaType, "{\n    \"location_ID\": \"{{location_ID}}\"\n}");
+RequestBody body = RequestBody.create(mediaType, "{\n\t\"session_token\" : \"{{session_token}}\"\n}");
 Request request = new Request.Builder()
-  .url("https://www.smartinventory/api/area/requestsessiontoken")
+  .url("https://www.smartinventory/api/area/unenroll")
   .method("POST", body)
   .addHeader("content_type", "application/json")
   .addHeader("Authorization", "{{bearer_token}}")
@@ -49,10 +50,10 @@ import FoundationNetworking
 
 var semaphore = DispatchSemaphore (value: 0)
 
-let parameters = "{\n    \"location_ID\": \"{{location_ID}}\"\n}"
+let parameters = "{\n\t\"session_token\" : \"{{session_token}}\"\n}"
 let postData = parameters.data(using: .utf8)
 
-var request = URLRequest(url: URL(string: "https://www.smartinventory/api/area/requestsessiontoken")!,timeoutInterval: Double.infinity)
+var request = URLRequest(url: URL(string: "https://www.smartinventory/api/area/unenroll")!,timeoutInterval: Double.infinity)
 request.addValue("application/json", forHTTPHeaderField: "content_type")
 request.addValue("{{bearer_token}}", forHTTPHeaderField: "Authorization")
 
@@ -79,16 +80,6 @@ semaphore.wait()
 
 ```json
 {
-    "location_ID": "{{location_ID}}"
+  "session_token": "w551UBuls9RmFbtISz6uw551UBuls9RmFbtISz6u", 
 }
 ```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "session_token": "{{session_token}}",
-  "expires": "YYYY-MM-DD",
-}
-```
-

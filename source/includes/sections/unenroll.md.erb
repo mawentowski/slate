@@ -1,0 +1,29 @@
+## Unenroll
+
+<%= partial "includes/codesnippets/unenroll.md.erb" %>
+
+Unenrolls all devices part of a session and removes all outstanding commands.
+
+### HTTP Request
+
+`POST area/unenroll`
+
+### Request Body
+
+Param | Type | O/M | Description
+------|------|-----|------------
+session_token | string | Mandatory | One-time token used to establish a session for a user and is revoked when the token expires. It contains the location at which the session token will be used.
+
+<aside class="success">
+A successful request returns a status of 204: No content.
+</aside>
+
+### Response
+No JSON returned.
+
+<aside class="warning">
+An unsuccessful request may return either a 400, 401, or a 409 error code with an explanatory message. For the general meaning of these responses, see the Error Codes section of this document.
+</aside>
+
+
+

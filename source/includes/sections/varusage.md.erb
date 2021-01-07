@@ -1,6 +1,12 @@
-## A note on Postman Variables
+## Use of Postman variables in headers
 For simplicity, Postman variables have been inserted into the code samples, indicating certain values need to be replaced by the ones provided to you during registeration.
 
-Postman variables are indicated by values wrapped in brackets in the code samples on the right pane, as the example shows below:
+Postman variables are indicated by values wrapped in brackets in the parameter tables and code samples on the right pane, as the example shows below:
 
 `{{bearer_token}}`
+
+Also, Postman variables are only used in the request headers, and thus are provided in the **Value** column 
+of the parameter tables to indicate the variable to be used for a given parameter. They are assumed to be mandatory.
+
+For the endpoints in the **Resources** sections, the parameters in the request bodies are indicated as **Mandatory** or **Optional**.
+There is no **Value** column since no variables are used.

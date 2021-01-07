@@ -8,8 +8,6 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - swift: Swift
   
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
 
 includes:
   - errors
@@ -27,30 +25,36 @@ code_clipboard: true
 
 <%= partial "includes/sections/gettingstarted.md.erb" %>
 
+<%= partial "includes/sections/setupaccount.md.erb" %>
+
+<%= partial "includes/sections/getcredentials.md.erb" %>
+
+<%= partial "includes/sections/noteonparams.md.erb" %>
+
 <%= partial "includes/sections/varusage.md.erb" %>
 
-<%= partial "includes/sections/getbearertoken.md.erb" %>
+<%= partial "includes/sections/requestbearertoken.md.erb" %>
 
-<%= partial "includes/sections/getsessiontoken.md.erb" %>
+<%= partial "includes/sections/requestsessiontoken.md.erb" %>
 
 <%= partial "includes/sections/auth.md.erb" %>
 
-# API Reference
+# Area Resource
 
-<%= partial "includes/sections/subscribe.md.erb" %>
+<%= partial "includes/sections/enroll.md.erb" %>
 
-<%= partial "includes/sections/status.md.erb" %>
+<%= partial "includes/sections/unenroll.md.erb" %>
 
-<%= partial "includes/sections/enable.md.erb" %>
-
-<%= partial "includes/sections/sendaeacommand.md.erb" %>
-
-<%= partial "includes/sections/disable.md.erb" %>
-
-<%= partial "includes/sections/unsubscribe.md.erb" %>
+<%= partial "includes/sections/requeststate.md.erb" %>
 
 
+# Device Resource
 
+<%= partial "includes/sections/activate.md.erb" %>
+
+<%= partial "includes/sections/sendcommand.md.erb" %>
+
+<%= partial "includes/sections/deactivate.md.erb" %>
 
 
 

@@ -1,9 +1,9 @@
 ## Request Bearer Token
 
-<%= partial "includes/codesnippets/getbearertoken.md.erb" %>
+<%= partial "includes/codesnippets/requestbearertoken.md.erb" %>
 
-Request a bearer token to establish authorization to use our API. Enter the credentials we 
-provided you as part of signup in the header of your request, as shown below.
+Request a bearer token to establish authorization to use our API. Enter your credentials in the header
+of your request, as shown below.
 
 ### HTTP Request
 
@@ -17,21 +17,20 @@ provided you as part of signup in the header of your request, as shown below.
 Param | Value | Type | Description
 ------|-------|------|------------
 content_type | application/x-www-<br>form-urlencoded | string | The format the body of the request is being sent as.
-client_ID | {{client_ID}} | string | The public identifier for your application represented as a 32-character hex string.
-client_secret | {{client_secret}} | string | The secret (or password) known only to the application and the authorization server.
-resource_ID | {{resource_ID}} | string | The fully qualified ID of the resource your application is requesting "access to". 
+resource_ID | `{{resource_ID}}` | string | The fully qualified ID of the resource your application is requesting "access to". 
+client_ID | `{{client_ID}}` | string | The public identifier for your application represented as a 32-character hex string.
+client_secret | `{{client_secret}}` | string | The secret (or password) known only to the application and the authorization server.
 
 ### Request Body
 Since the content_type for this request is **application/x-www-form-urlencoded**, there is no JSON example. Below is a request example:
 
-`content_type=application/x-www-form-urlencoded&client_ID={{client_ID}}&client_secret={{client_secret}}&resource_ID={{resource_ID}}&AAD_instance={{AAD_instance}}`
+`content_type=application/x-www-form-urlencoded&resource_ID={{resource_ID}}&client_ID={{client_ID}}&client_secret={{client_secret}}`
 
 Param | Value | Type | Description
 ------|-------|------|------------
-grant_type | client_credentials | string | Credentials granting you limited access to our resources in order to request an access token.
-client_ID | {{client_ID}} | string | The public identifier for your application represented as a 32-character hex string.
-client_secret | {{client_secret}} | string | The secret (or password) known only to the application and the authorization server.
-resource_ID | {{resource_ID}} | string | The fully qualified ID of the resource your application is requesting "access to". 
+resource_ID | `{{resource_ID}}` | string | The fully qualified ID of the resource your application is requesting "access to". 
+client_ID | `{{client_ID}}` | string | The public identifier for your application represented as a 32-character hex string.
+client_secret | `{{client_secret}}` | string | The secret (or password) known only to the application and the authorization server.
 
 <aside class="success">
 A successful request returns a 200 OK Status with the body returning the bearer token. OAuth2 is now 
@@ -45,7 +44,7 @@ Param | Type | O/M | Description
 token_type | string | Mandatory | The type of token (i.e. Bearer).
 expires_in | datetime | Mandatory | The date and time the access token expires.
 resource_ID | string | Mandatory | The fully qualified ID of the resource your application is requesting "access to". 
-access_token | string | Mandatory | Token that informs the API that you are authorized to access the API and perform specific actions specified by the scope that was granted during authorization.
+access_token | string | Mandatory | (AKA "Bearer") token that informs the API that you are authorized to access the API and perform specific actions specified by the scope that was granted during authorization.
 
 
 Now that OAuth2 is established, use the bearer token to retrieve a session token. 

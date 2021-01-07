@@ -1,0 +1,34 @@
+## Request Session Token
+
+<%= partial "includes/codesnippets/requestsessiontoken.md.erb" %>
+
+Request a session token that can be used at your specified area in order to make other API requests, most notably the **Enroll** request that requires a `area_ID`.
+The `area_ID` is encoded in the session token.
+
+### HTTP Request
+
+`POST area/requestsessiontoken`
+
+<%= partial "includes/sections/headerparams.md.erb" %>
+
+### Request Body
+
+Parameter | Value | Type | Description
+----------|-------|------|------------
+area_ID | `{{area_ID}}` | String | The location the session token will be used. 
+
+<aside class="success">
+A successful request returns a 200 OK Status, along with a session token and expiry time in the return body. <!-- The method also returns the expiry time so, if needed, it can be tracked and an extension command can be issued.  Dev Guidelines details expiry call, add here or reference in the conceptual documents?-->
+</aside>
+
+### Response
+
+Param | Type | O/M | Description
+------|------|-----|------------
+session_token | string | Mandatory | One-time token used to establish a session for a user and is revoked when the token expires. It contains the location at which the session token will be used.
+expires | datetime | Mandatory | UTC time the session token expires.
+
+<aside class="warning">
+An unsuccessful request may return either a 400, 401, or 422 error code with an explanatory message. For the general meaning of these responses, see the Error Codes section of this doc site.
+</aside>
+

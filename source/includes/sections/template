@@ -6,13 +6,13 @@ Receives a session token that can be used at the location specified.
 
 ### HTTP Request
 
-`POST location/getsessiontoken`
+`POST areagetsessiontoken`
 
 ### Request Body
 
 Param | Value | Optional/Mandatory | Description
 ------|-------|-------------------|------------
-location_ID | {{location_ID}} | Mandatory | The location at which the session token will be used.
+area_ID | {{area_ID}} | Mandatory | The location at which the session token will be used.
 
 <aside class="success">
 A successful call returns a 200 OK Status, along with a session token and expiry time in the return body. <!-- The method also returns the expiry time so, if needed, it can be tracked and an extension command can be issued.  Dev Guidelines details expiry call, add here or reference in the conceptual documents?-->

@@ -1,5 +1,5 @@
 ```shell
-curl --location --request POST 'https://www.smartinventory/api/device/sendorder' \
+curl --location --request POST 'https://www.smartinventory/api/device/sendcommand' \
 --header 'Authorization: {{AccessToken}}' \
 --header 'content_type: application/json' \
 --data-raw '{ 
@@ -26,7 +26,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch("https://www.smartinventory/api/device/sendorder", requestOptions)
+fetch("https://www.smartinventory/api/device/sendcommand", requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
@@ -38,7 +38,7 @@ OkHttpClient client = new OkHttpClient().newBuilder()
 MediaType mediaType = MediaType.parse("application/json");
 RequestBody body = RequestBody.create(mediaType, "{ \r\n \"device_ID\" : \"{{device_ID}}\", \r\n \"transaction_ID\" : \"930206be-57ec-4073-879d-bd4c4d4986da\", \r\n \"RequestID\" : \"4bc03c24-0bf0-4642-87d8-6db9302777cc\", \r\n \"session_token\" : \"{{session_token}}\",\r\n \"command\" : \"QUQ7TUcjUCNBSGVsbG8=\"\r\n} \r\n");
 Request request = new Request.Builder()
-  .url("https://www.smartinventory/api/device/sendorder")
+  .url("https://www.smartinventory/api/device/sendcommand")
   .method("POST", body)
   .addHeader("Authorization", "{{AccessToken}}")
   .addHeader("content_type", "application/json")
@@ -57,7 +57,7 @@ var semaphore = DispatchSemaphore (value: 0)
 let parameters = "{ \r\n \"device_ID\" : \"{{device_ID}}\", \r\n \"transaction_ID\" : \"08eb4cea-d9d4-46e6-bf6f-065efa6c505c\", \r\n \"RequestID\" : \"7d19c106-2ca1-4864-b698-8fa97ac4a692\", \r\n \"session_token\" : \"{{session_token}}\",\r\n \"command\" : \"QUQ7TUcjUCNBSGVsbG8=\"\r\n} \r\n"
 let postData = parameters.data(using: .utf8)
 
-var request = URLRequest(url: URL(string: "https://www.smartinventory/api/device/sendorder")!,timeoutInterval: Double.infinity)
+var request = URLRequest(url: URL(string: "https://www.smartinventory/api/device/sendcommand")!,timeoutInterval: Double.infinity)
 request.addValue("{{AccessToken}}", forHTTPHeaderField: "Authorization")
 request.addValue("application/json", forHTTPHeaderField: "content_type")
 

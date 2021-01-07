@@ -1,0 +1,34 @@
+## Request State
+
+<%= partial "includes/codesnippets/requeststate.md.erb" %>
+
+Request the state of devices. Leave `device_state_list` empty to request the state of all devices.
+
+### HTTP Request
+
+`POST area/requeststate`
+
+### Request Body
+
+Param | Type | O/M | Description
+------|------|-----|------------
+device_list | array[object] | Mandatory | A list comprised of one or more devices.
+device_ID | string | Mandatory | The network ID used to identify the device on the network.
+transaction_ID | string | Optional | The transaction initiated through an API call from your application.
+session_token | string | Mandatory | One-time token used to establish a session for a user and is revoked when the token expires. It contains the location at which the session token will be used.
+
+<aside class="success">
+A successful request returns a status of 200 OK with device state(s).
+</aside>
+
+### Response
+
+Param | Type | O/M | Description
+------|------|-----|------------
+device_state_list | array[object] | Mandatory | A list of devices and their statuses. Possible values are Online, Offline, or DeviceError.
+device_ID | string | Mandatory | The network ID used to identify the device on the network.
+transaction_ID | string | Optional | The transaction initiated through an API call from your application.
+
+<aside class="warning">
+An unsuccessful request may return a 400 error code with an explanatory message. For the general meaning of these responses, see the Error Codes section of this document.
+</aside>
