@@ -1,0 +1,18 @@
+<h2 id='what-is-smartinventory'>What is SmartInventory?</h2>
+<p>The <strong>SmartInventory API</strong> lets you create inventory management applications that use IoT-enabled devices 
+(i.e. barcode scanners and printers) to collect data from scan events in warehouses to track products
+as they move through stocking to shipping.</p>
+<h2 id='who-is-it-for'>Who is it for?</h2>
+<p>Developers creating applications for warehouse management that track stock levels, forecast sales, identify gaps
+in quality control, and create audits. You can also issue commands to devices using our API to do things like
+print physical copies of crew reports in the warehouse or change settings in a scanner.</p>
+<h2 id='why-use-it'>Why use it?</h2>
+<p>Our API manages the interaction between <em>your customers&#39;</em> warehouse devices and <em>your</em> applications, so you do not need to reinvent the wheel.
+In the end, that means saving costs and cutting down on your development time so you can turn a profit sooner
+than later.</p>
+<h2 id='how-do-i-use-it'>How do I use it?</h2>
+<p>After you have completed sign up and registeration, we provide you the credentials you need to request
+access to our API. You can then start to enroll your devices at a warehouse area,
+activate them for data capture, send them commands to perform certain actions, and request
+device statuses to ensure they are working. This doc site was creating to walk you through entire process
+of using our API!</p>

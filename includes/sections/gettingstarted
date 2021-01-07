@@ -1,0 +1,9 @@
+<h2 id='authorization'>Authorization</h2>
+<p>Our web-hosted resources are protected through the Microsoft identity platform that 
+implements <a href="https://oauth.net/2/">OAuth 2.0</a> authorization protocol. 
+OAuth 2.0 is a method through which your third-party app can access web-hosted 
+resources on behalf of your users.</p>
+
+<p>Before you integrate our IoT API, your application must establish authorization 
+via the Microsoft identity platform&#39;s 
+OAuth 2.0 authorization protocol to access our API. </p>

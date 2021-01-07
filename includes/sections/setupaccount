@@ -1,0 +1,33 @@
+<h2 id='set-up-account'>Set up account</h2>
+<p>You need a <strong>developer</strong>, <strong>personal</strong>, or <strong>business account</strong> to log into our <strong>developer portal</strong>, gain credentials, and create an API test environment.
+Each account provides different levels of access to <strong>SmartInventory</strong> functionality.</p>
+
+<table><thead>
+<tr>
+<th>Capabilities</th>
+<th>Developer</th>
+<th>Personal</th>
+<th>Business</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Access test environment</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr>
+<td>Make API requests</td>
+<td></td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr>
+<td>Go live</td>
+<td></td>
+<td></td>
+<td>x</td>
+</tr>
+</tbody></table>
+
+<p>If you would like to access a capability you currently do not have, you may upgrade your account on your <strong>Account</strong> page in the <strong>Developer portal</strong>.</p>

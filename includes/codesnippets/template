@@ -1,0 +1,30 @@
+```shell
+```
+
+```javascript
+```
+
+```java
+```
+
+```swift
+```
+
+
+> Request Body (JSON):
+
+```json
+{
+    "area_ID": "{{area_ID}}"
+}
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "session_token": "{{session_token}}",
+  "expires": "YYYY-MM-DD",
+}
+```
+

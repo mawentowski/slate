@@ -1,0 +1,3 @@
+<h2 id='a-note-on-request-bodies'>A note on request bodies</h2>
+<p>There are no <strong>path</strong> parameters or <strong>query string</strong> parameters. You simply submit JSON to the API in the <strong>request body</strong>. The sample request bodies
+are provided for each end point. Also, the only method used with this API is <strong>POST</strong>.</p>

@@ -1,0 +1,1984 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sa, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-c9d8fa83.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-e033bdd3.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;javascript&quot;,&quot;java&quot;,&quot;swift&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo-5e7542ab.png" class="logo" alt="" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">cURL</a>
+              <a href="#" data-language-name="javascript">Javascript</a>
+              <a href="#" data-language-name="java">Java</a>
+              <a href="#" data-language-name="swift">Swift</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#api-overview" class="toc-h1 toc-link" data-title="API Overview">API Overview</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#what-is-smartinventory" class="toc-h2 toc-link" data-title="What is SmartInventory?">What is SmartInventory?</a>
+                  </li>
+                  <li>
+                    <a href="#who-is-it-for" class="toc-h2 toc-link" data-title="Who is it for?">Who is it for?</a>
+                  </li>
+                  <li>
+                    <a href="#why-use-it" class="toc-h2 toc-link" data-title="Why use it?">Why use it?</a>
+                  </li>
+                  <li>
+                    <a href="#how-do-i-use-it" class="toc-h2 toc-link" data-title="How do I use it?">How do I use it?</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#get-started" class="toc-h1 toc-link" data-title="Get Started">Get Started</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#authorization" class="toc-h2 toc-link" data-title="Authorization">Authorization</a>
+                  </li>
+                  <li>
+                    <a href="#set-up-account" class="toc-h2 toc-link" data-title="Set up account">Set up account</a>
+                  </li>
+                  <li>
+                    <a href="#get-credentials" class="toc-h2 toc-link" data-title="Get credentials">Get credentials</a>
+                  </li>
+                  <li>
+                    <a href="#a-note-on-request-bodies" class="toc-h2 toc-link" data-title="A note on request bodies">A note on request bodies</a>
+                  </li>
+                  <li>
+                    <a href="#use-of-postman-variables-in-headers" class="toc-h2 toc-link" data-title="Use of Postman variables in headers">Use of Postman variables in headers</a>
+                  </li>
+                  <li>
+                    <a href="#request-bearer-token" class="toc-h2 toc-link" data-title="Request Bearer Token">Request Bearer Token</a>
+                  </li>
+                  <li>
+                    <a href="#request-session-token" class="toc-h2 toc-link" data-title="Request Session Token">Request Session Token</a>
+                  </li>
+                  <li>
+                    <a href="#make-api-calls" class="toc-h2 toc-link" data-title="Make API Calls">Make API Calls</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#area-resource" class="toc-h1 toc-link" data-title="Area Resource">Area Resource</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#enroll" class="toc-h2 toc-link" data-title="Enroll">Enroll</a>
+                  </li>
+                  <li>
+                    <a href="#unenroll" class="toc-h2 toc-link" data-title="Unenroll">Unenroll</a>
+                  </li>
+                  <li>
+                    <a href="#request-state" class="toc-h2 toc-link" data-title="Request State">Request State</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#device-resource" class="toc-h1 toc-link" data-title="Device Resource">Device Resource</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#activate" class="toc-h2 toc-link" data-title="Activate">Activate</a>
+                  </li>
+                  <li>
+                    <a href="#send-command" class="toc-h2 toc-link" data-title="Send Command">Send Command</a>
+                  </li>
+                  <li>
+                    <a href="#deactivate" class="toc-h2 toc-link" data-title="Deactivate">Deactivate</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#error" class="toc-h1 toc-link" data-title="Error">Error</a>
+          </li>
+      </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <!-- Go back and make everything active -->
+<h1 id='api-overview'>API Overview</h1>
+<h2 id='what-is-smartinventory'>What is SmartInventory?</h2>
+
+<p>The <strong>SmartInventory API</strong> lets you create inventory management applications that use IoT-enabled devices 
+(i.e. barcode scanners and printers) to collect data from scan events in warehouses to track products
+as they move through stocking to shipping.</p>
+
+<h2 id='who-is-it-for'>Who is it for?</h2>
+
+<p>Developers creating applications for warehouse management that track stock levels, forecast sales, identify gaps
+in quality control, and create audits. You can also issue commands to devices using our API to do things like
+print physical copies of crew reports in the warehouse or change settings in a scanner.</p>
+
+<h2 id='why-use-it'>Why use it?</h2>
+
+<p>Our API manages the interaction between <em>your customers&#39;</em> warehouse devices and <em>your</em> applications, so you do not need to reinvent the wheel.
+In the end, that means saving costs and cutting down on your development time so you can turn a profit sooner
+than later.</p>
+
+<h2 id='how-do-i-use-it'>How do I use it?</h2>
+
+<p>After you have completed sign up and registeration, we provide you the credentials you need to request
+access to our API. You can then start to enroll your devices at a warehouse area,
+activate them for data capture, send them commands to perform certain actions, and request
+device statuses to ensure they are working. This doc site was creating to walk you through entire process
+of using our API!</p>
+<h1 id='get-started'>Get Started</h1>
+<h2 id='authorization'>Authorization</h2>
+
+<p>Our web-hosted resources are protected through the Microsoft identity platform that 
+implements <a href="https://oauth.net/2/">OAuth 2.0</a> authorization protocol. 
+OAuth 2.0 is a method through which your third-party app can access web-hosted 
+resources on behalf of your users.</p>
+
+<p>Before you integrate our IoT API, your application must establish authorization 
+via the Microsoft identity platform&#39;s 
+OAuth 2.0 authorization protocol to access our API. </p>
+
+<h2 id='set-up-account'>Set up account</h2>
+
+<p>You need a <strong>developer</strong>, <strong>personal</strong>, or <strong>business account</strong> to log into our <strong>developer portal</strong>, gain credentials, and create an API test environment.
+Each account provides different levels of access to <strong>SmartInventory</strong> functionality.</p>
+
+<table><thead>
+<tr>
+<th>Capabilities</th>
+<th>Developer</th>
+<th>Personal</th>
+<th>Business</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Access test environment</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr>
+<td>Make API requests</td>
+<td></td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr>
+<td>Go live</td>
+<td></td>
+<td></td>
+<td>x</td>
+</tr>
+</tbody></table>
+
+<p>If you would like to access a capability you currently do not have, you may upgrade your account on your <strong>Account</strong> page in the <strong>Developer portal</strong>.</p>
+
+<h2 id='get-credentials'>Get credentials</h2>
+
+<p>To generate API credentials for your test and live environments:</p>
+
+<ol>
+<li><p>Log into the <strong>Developer Portal</strong> with your <strong>SmartInventory</strong> account credentials. If you do not have an account, click <strong>Sign Up</strong> to set up an account.</p></li>
+<li><p>On <strong>My Web Apps &amp; Credentials</strong>, use the tab to alternate between your <strong>Live</strong> and <strong>Test</strong> web apps.</p></li>
+<li><p>Enter a name for your app and click <strong>Create Web App</strong>. </p>
+
+<ul>
+<li>Your credentials are displayed on the resulting page. You will need to insert these crendentials into the header of your requests.</li>
+</ul></li>
+<li><p>Review your app information and click <strong>Save</strong>.</p></li>
+</ol>
+
+<h2 id='a-note-on-request-bodies'>A note on request bodies</h2>
+
+<p>There are no <strong>path</strong> parameters or <strong>query string</strong> parameters. You simply submit JSON to the API in the <strong>request body</strong>. The sample request bodies
+are provided for each end point. Also, the only method used with this API is <strong>POST</strong>.</p>
+
+<h2 id='use-of-postman-variables-in-headers'>Use of Postman variables in headers</h2>
+
+<p>For simplicity, Postman variables have been inserted into the code samples, indicating certain values need to be replaced by the ones provided to you during registeration.</p>
+
+<p>Postman variables are indicated by values wrapped in brackets in the parameter tables and code samples on the right pane, as the example shows below:</p>
+
+<p><code>{{bearer_token}}</code></p>
+
+<p>Also, Postman variables are only used in the request headers, and thus are provided in the <strong>Value</strong> column 
+of the parameter tables to indicate the variable to be used for a given parameter. They are assumed to be mandatory.</p>
+
+<p>For the endpoints in the <strong>Resources</strong> sections, the parameters in the request bodies are indicated as <strong>Mandatory</strong> or <strong>Optional</strong>.
+There is no <strong>Value</strong> column since no variables are used.</p>
+
+<h2 id='request-bearer-token'>Request Bearer Token</h2>
+
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://your_domain/oauth/token'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'content_type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'resource_ID: {{resource_ID}}'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'client_ID: {{client_ID}}'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'client_secret: {{client_secret}}'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">''</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">myHeaders</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Headers</span><span class="p">();</span>
+<span class="nx">myHeaders</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">"</span><span class="s2">content_type</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">application/x-www-form-urlencoded</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">myHeaders</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">"</span><span class="s2">client_ID</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">{{client_ID}}</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">myHeaders</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">"</span><span class="s2">resource_ID</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">{{resource_ID}}</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">myHeaders</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">"</span><span class="s2">client_secret</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">{{client_secret}}</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">raw</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">requestOptions</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">myHeaders</span><span class="p">,</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">raw</span><span class="p">,</span>
+  <span class="na">redirect</span><span class="p">:</span> <span class="dl">'</span><span class="s1">follow</span><span class="dl">'</span>
+<span class="p">};</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="dl">"</span><span class="s2">https://your_domain/oauth/token</span><span class="dl">"</span><span class="p">,</span> <span class="nx">requestOptions</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">text</span><span class="p">())</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">result</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">))</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">error</span><span class="dl">'</span><span class="p">,</span> <span class="nx">error</span><span class="p">));</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="nc">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/x-www-form-urlencoded"</span><span class="o">);</span>
+<span class="nc">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="nc">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">""</span><span class="o">);</span>
+<span class="nc">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://your_domain/oauth/token"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">"POST"</span><span class="o">,</span> <span class="n">body</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"content_type"</span><span class="o">,</span> <span class="s">"application/x-www-form-urlencoded"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"client_ID"</span><span class="o">,</span> <span class="s">"{{client_ID}}"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"resource_ID"</span><span class="o">,</span> <span class="s">"{{resource_ID}}"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"client_secret"</span><span class="o">,</span> <span class="s">"{{client_secret}}"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre></div><div class="highlight"><pre class="highlight swift tab-swift"><code><span class="kd">import</span> <span class="kt">Foundation</span>
+<span class="cp">#if canImport(FoundationNetworking)</span>
+<span class="kd">import</span> <span class="kt">FoundationNetworking</span>
+<span class="cp">#endif</span>
+
+<span class="k">var</span> <span class="nv">semaphore</span> <span class="o">=</span> <span class="kt">DispatchSemaphore</span> <span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="k">var</span> <span class="nv">request</span> <span class="o">=</span> <span class="kt">URLRequest</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="s">"https://your_domain/oauth/token"</span><span class="p">)</span><span class="o">!</span><span class="p">,</span><span class="nv">timeoutInterval</span><span class="p">:</span> <span class="kt">Double</span><span class="o">.</span><span class="n">infinity</span><span class="p">)</span>
+<span class="n">request</span><span class="o">.</span><span class="nf">addValue</span><span class="p">(</span><span class="s">"application/x-www-form-urlencoded"</span><span class="p">,</span> <span class="nv">forHTTPHeaderField</span><span class="p">:</span> <span class="s">"content_type"</span><span class="p">)</span>
+<span class="n">request</span><span class="o">.</span><span class="nf">addValue</span><span class="p">(</span><span class="s">"{{resource_ID}}"</span><span class="p">,</span> <span class="nv">forHTTPHeaderField</span><span class="p">:</span> <span class="s">"resource_ID"</span><span class="p">)</span>
+<span class="n">request</span><span class="o">.</span><span class="nf">addValue</span><span class="p">(</span><span class="s">"{{client_ID}}"</span><span class="p">,</span> <span class="nv">forHTTPHeaderField</span><span class="p">:</span> <span class="s">"client_ID"</span><span class="p">)</span>
+<span class="n">request</span><span class="o">.</span><span class="nf">addValue</span><span class="p">(</span><span class="s">"{{client_secret}}"</span><span class="p">,</span> <span class="nv">forHTTPHeaderField</span><span class="p">:</span> <span class="s">"client_secret"</span><span class="p">)</span>
+
+<span class="n">request</span><span class="o">.</span><span class="n">httpMethod</span> <span class="o">=</span> <span class="s">"POST"</span>
+
+<span class="k">let</span> <span class="nv">task</span> <span class="o">=</span> <span class="kt">URLSession</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">dataTask</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span> <span class="n">data</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">error</span> <span class="k">in</span> 
+  <span class="k">guard</span> <span class="k">let</span> <span class="nv">data</span> <span class="o">=</span> <span class="n">data</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="kt">String</span><span class="p">(</span><span class="nv">describing</span><span class="p">:</span> <span class="n">error</span><span class="p">))</span>
+    <span class="n">semaphore</span><span class="o">.</span><span class="nf">signal</span><span class="p">()</span>
+    <span class="k">return</span>
+  <span class="p">}</span>
+  <span class="nf">print</span><span class="p">(</span><span class="kt">String</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="n">data</span><span class="p">,</span> <span class="nv">encoding</span><span class="p">:</span> <span class="o">.</span><span class="n">utf8</span><span class="p">)</span><span class="o">!</span><span class="p">)</span>
+  <span class="n">semaphore</span><span class="o">.</span><span class="nf">signal</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="n">task</span><span class="o">.</span><span class="nf">resume</span><span class="p">()</span>
+<span class="n">semaphore</span><span class="o">.</span><span class="nf">wait</span><span class="p">()</span>
+
+</code></pre></div>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4200"</span><span class="p">,</span><span class="w">
+
+  </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{{bearer_token}}"</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+
+<p>Request a bearer token to establish authorization to use our API. Enter your credentials in the header
+of your request, as shown below.</p>
+
+<h3 id='http-request'>HTTP Request</h3>
+
+<p><code>POST /oauth2/token</code></p>
+
+<h3 id='header-parameters'>Header Parameters</h3>
+
+<!-- Is it assumed header parameters are mandatory, or need to say explicity? -->
+
+<!-- Maybe explain M/O since it is abbreviated -->
+
+<!-- Min and max values are really only applicable to non-variable fields. How handle? -->
+
+<table><thead>
+<tr>
+<th>Param</th>
+<th>Value</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>content_type</td>
+<td>application/x-www-<br>form-urlencoded</td>
+<td>string</td>
+<td>The format the body of the request is being sent as.</td>
+</tr>
+<tr>
+<td>resource_ID</td>
+<td><code>{{resource_ID}}</code></td>
+<td>string</td>
+<td>The fully qualified ID of the resource your application is requesting &quot;access to&quot;.</td>
+</tr>
+<tr>
+<td>client_ID</td>
+<td><code>{{client_ID}}</code></td>
+<td>string</td>
+<td>The public identifier for your application represented as a 32-character hex string.</td>
+</tr>
+<tr>
+<td>client_secret</td>
+<td><code>{{client_secret}}</code></td>
+<td>string</td>
+<td>The secret (or password) known only to the application and the authorization server.</td>
+</tr>
+</tbody></table>
+
+<h3 id='request-body'>Request Body</h3>
+
+<p>Since the content_type for this request is <strong>application/x-www-form-urlencoded</strong>, there is no JSON example. Below is a request example:</p>
+
+<p><code>content_type=application/x-www-form-urlencoded&amp;resource_ID={{resource_ID}}&amp;client_ID={{client_ID}}&amp;client_secret={{client_secret}}</code></p>
+
+<table><thead>
+<tr>
+<th>Param</th>
+<th>Value</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>resource_ID</td>
+<td><code>{{resource_ID}}</code></td>
+<td>string</td>
+<td>The fully qualified ID of the resource your application is requesting &quot;access to&quot;.</td>
+</tr>
+<tr>
+<td>client_ID</td>
+<td><code>{{client_ID}}</code></td>
+<td>string</td>
+<td>The public identifier for your application represented as a 32-character hex string.</td>
+</tr>
+<tr>
+<td>client_secret</td>
+<td><code>{{client_secret}}</code></td>
+<td>string</td>
+<td>The secret (or password) known only to the application and the authorization server.</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+A successful request returns a 200 OK Status with the body returning the bearer token. OAuth2 is now 
+established.
+</aside>
+
+<h3 id='response'>Response</h3>
+
+<table><thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>O/M</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token_type</td>
+<td>string</td>
+<td>Mandatory</td>
+<td>The type of token (i.e. Bearer).</td>
+</tr>
+<tr>
+<td>expires_in</td>
+<td>datetime</td>
+<td>Mandatory</td>
+<td>The date and time the access token expires.</td>
+</tr>
+<tr>
+<td>resource_ID</td>
+<td>string</td>
+<td>Mandatory</td>
+<td>The fully qualified ID of the resource your application is requesting &quot;access to&quot;.</td>
+</tr>
+<tr>
+<td>access_token</td>
+<td>string</td>
+<td>Mandatory</td>
+<td>(AKA &quot;Bearer&quot;) token that informs the API that you are authorized to access the API and perform specific actions specified by the scope that was granted during authorization.</td>
+</tr>
+</tbody></table>
+
+<p>Now that OAuth2 is established, use the bearer token to retrieve a session token. 
+Please note that the bearer token expires, as indicated by the <code>expires_in</code> value returned in the response.</p>
+
+<p>Use a tool such as <a href="https://jwt.io/">jwt.io</a> to view the content of the bearer token. This approach is handy for troubleshooting 
+if you need to verify permission roles granted for the client it is provided against.</p>
+
+<h2 id='request-session-token'>Request Session Token</h2>
+
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://www.smartinventory/api/area/requestsessiontoken'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'content_type: application/json'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: {{bearer_token}}'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "area_ID": "{{area_ID}}"
+}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">myHeaders</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Headers</span><span class="p">();</span>
+<span class="nx">myHeaders</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">"</span><span class="s2">content_type</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">myHeaders</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">"</span><span class="s2">Authorization</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">{{bearer_token}}</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">raw</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span><span class="dl">"</span><span class="s2">area_ID</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">{{area_ID}}</span><span class="dl">"</span><span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">requestOptions</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">myHeaders</span><span class="p">,</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">raw</span><span class="p">,</span>
+  <span class="na">redirect</span><span class="p">:</span> <span class="dl">'</span><span class="s1">follow</span><span class="dl">'</span>
+<span class="p">};</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="dl">"</span><span class="s2">https://www.smartinventory/api/area/requestsessiontoken</span><span class="dl">"</span><span class="p">,</span> <span class="nx">requestOptions</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">text</span><span class="p">())</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">result</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">))</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">error</span><span class="dl">'</span><span class="p">,</span> <span class="nx">error</span><span class="p">));</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="nc">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
+<span class="nc">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="nc">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"{\n    \"area_ID\": \"{{area_ID}}\"\n}"</span><span class="o">);</span>
+<span class="nc">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://www.smartinventory/api/area/requestsessiontoken"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">"POST"</span><span class="o">,</span> <span class="n">body</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"content_type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"{{bearer_token}}"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre></div><div class="highlight"><pre class="highlight swift tab-swift"><code><span class="kd">import</span> <span class="kt">Foundation</span>
+<span class="cp">#if canImport(FoundationNetworking)</span>
+<span class="kd">import</span> <span class="kt">FoundationNetworking</span>
+<span class="cp">#endif</span>
+
+<span class="k">var</span> <span class="nv">semaphore</span> <span class="o">=</span> <span class="kt">DispatchSemaphore</span> <span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="k">let</span> <span class="nv">parameters</span> <span class="o">=</span> <span class="s">"{</span><span class="se">\n</span><span class="s">    </span><span class="se">\"</span><span class="s">area_ID</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">{{area_ID}}</span><span class="se">\"\n</span><span class="s">}"</span>
+<span class="k">let</span> <span class="nv">postData</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="nf">data</span><span class="p">(</span><span class="nv">using</span><span class="p">:</span> <span class="o">.</span><span class="n">utf8</span><span class="p">)</span>
+
+<span class="k">var</span> <span class="nv">request</span> <span class="o">=</span> <span class="kt">URLRequest</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="s">"https://www.smartinventory/api/area/requestsessiontoken"</span><span class="p">)</span><span class="o">!</span><span class="p">,</span><span class="nv">timeoutInterval</span><span class="p">:</span> <span class="kt">Double</span><span class="o">.</span><span class="n">infinity</span><span class="p">)</span>
+<span class="n">request</span><span class="o">.</span><span class="nf">addValue</span><span class="p">(</span><span class="s">"application/json"</span><span class="p">,</span> <span class="nv">forHTTPHeaderField</span><span class="p">:</span> <span class="s">"content_type"</span><span class="p">)</span>
+<span class="n">request</span><span class="o">.</span><span class="nf">addValue</span><span class="p">(</span><span class="s">"{{bearer_token}}"</span><span class="p">,</span> <span class="nv">forHTTPHeaderField</span><span class="p">:</span> <span class="s">"Authorization"</span><span class="p">)</span>
+
+<span class="n">request</span><span class="o">.</span><span class="n">httpMethod</span> <span class="o">=</span> <span class="s">"POST"</span>
+<span class="n">request</span><span class="o">.</span><span class="n">httpBody</span> <span class="o">=</span> <span class="n">postData</span>
+
+<span class="k">let</span> <span class="nv">task</span> <span class="o">=</span> <span class="kt">URLSession</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">dataTask</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span> <span class="n">data</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">error</span> <span class="k">in</span> 
+  <span class="k">guard</span> <span class="k">let</span> <span class="nv">data</span> <span class="o">=</span> <span class="n">data</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="kt">String</span><span class="p">(</span><span class="nv">describing</span><span class="p">:</span> <span class="n">error</span><span class="p">))</span>
+    <span class="n">semaphore</span><span class="o">.</span><span class="nf">signal</span><span class="p">()</span>
+    <span class="k">return</span>
+  <span class="p">}</span>
+  <span class="nf">print</span><span class="p">(</span><span class="kt">String</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="n">data</span><span class="p">,</span> <span class="nv">encoding</span><span class="p">:</span> <span class="o">.</span><span class="n">utf8</span><span class="p">)</span><span class="o">!</span><span class="p">)</span>
+  <span class="n">semaphore</span><span class="o">.</span><span class="nf">signal</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="n">task</span><span class="o">.</span><span class="nf">resume</span><span class="p">()</span>
+<span class="n">semaphore</span><span class="o">.</span><span class="nf">wait</span><span class="p">()</span>
+
+</code></pre></div>
+
+<blockquote>
+<p>Request Body (JSON):</p>
+</blockquote>
+
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"area_ID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{{area_ID}}"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"session_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{{session_token}}"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YYYY-MM-DD"</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+
+<p>Request a session token that can be used at your specified area in order to make other API requests, most notably the <strong>Enroll</strong> request that requires a <code>area_ID</code>.
+The <code>area_ID</code> is encoded in the session token.</p>
+
+<h3 id='http-request'>HTTP Request</h3>
+
+<p><code>POST area/requestsessiontoken</code></p>
+
+<h3 id='header-parameters'>Header Parameters</h3>
+
+<!-- The Authorization is required, consider a new column for mandatory elements-->
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>content_type</td>
+<td>application/json</td>
+<td>string</td>
+<td>The format the body of the request is being sent as.</td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td><code>{{bearer_token}}</code></td>
+<td>string</td>
+<td>Credential used by your application to access our API.</td>
+</tr>
+</tbody></table>
+
+<h3 id='request-body'>Request Body</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>area_ID</td>
+<td><code>{{area_ID}}</code></td>
+<td>String</td>
+<td>The location the session token will be used.</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+A successful request returns a 200 OK Status, along with a session token and expiry time in the return body. <!-- The method also returns the expiry time so, if needed, it can be tracked and an extension command can be issued.  Dev Guidelines details expiry call, add here or reference in the conceptual documents?-->
+</aside>
+
+<h3 id='response'>Response</h3>
+
+<table><thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>O/M</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>session_token</td>
+<td>string</td>
+<td>Mandatory</td>
+<td>One-time token used to establish a session for a user and is revoked when the token expires. It contains the location at which the session token will be used.</td>
+</tr>
+<tr>
+<td>expires</td>
+<td>datetime</td>
+<td>Mandatory</td>
+<td>UTC time the session token expires.</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+An unsuccessful request may return either a 400, 401, or 422 error code with an explanatory message. For the general meaning of these responses, see the Error Codes section of this doc site.
+</aside>
+
+<h2 id='make-api-calls'>Make API Calls</h2>
+
+<blockquote>
+<p>Your basic request should look like the following:</p>
+</blockquote>
+
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl POST <span class="s1">'_apiEndpoint_'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'content_type: application/json'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: {{bearer_token}}'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "_jsonObjectkey_": "_keyValue_"
+}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">myHeaders</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Headers</span><span class="p">();</span>
+<span class="nx">myHeaders</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">"</span><span class="s2">content_type</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">myHeaders</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">"</span><span class="s2">Authorization</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">{{bearer_token}}</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">raw</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span><span class="dl">"</span><span class="s2">_jsonObjectkey_</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">{{_jsonObjectkey_}}</span><span class="dl">"</span><span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">requestOptions</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">myHeaders</span><span class="p">,</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">raw</span><span class="p">,</span>
+  <span class="na">redirect</span><span class="p">:</span> <span class="dl">'</span><span class="s1">follow</span><span class="dl">'</span>
+<span class="p">};</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="dl">"</span><span class="s2">_apiEndpoint_</span><span class="dl">"</span><span class="p">,</span> <span class="nx">requestOptions</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">text</span><span class="p">())</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">result</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">))</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">error</span><span class="dl">'</span><span class="p">,</span> <span class="nx">error</span><span class="p">));</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="nc">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
+<span class="nc">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="nc">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"{\n    \"_jsonObjectkey_\": \"{{_jsonObjectkey_}}\"\n}"</span><span class="o">);</span>
+<span class="nc">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"_apiEndpoint_"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">"POST"</span><span class="o">,</span> <span class="n">body</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"content_type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"{{bearer_token}}"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre></div><div class="highlight"><pre class="highlight swift tab-swift"><code><span class="kd">import</span> <span class="kt">Foundation</span>
+<span class="cp">#if canImport(FoundationNetworking)</span>
+<span class="kd">import</span> <span class="kt">FoundationNetworking</span>
+<span class="cp">#endif</span>
+
+<span class="k">var</span> <span class="nv">semaphore</span> <span class="o">=</span> <span class="kt">DispatchSemaphore</span> <span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="k">let</span> <span class="nv">parameters</span> <span class="o">=</span> <span class="s">"{</span><span class="se">\n</span><span class="s">    </span><span class="se">\"</span><span class="s">_jsonObjectkey_</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">{{_jsonObjectkey_}}</span><span class="se">\"\n</span><span class="s">}"</span>
+<span class="k">let</span> <span class="nv">postData</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="nf">data</span><span class="p">(</span><span class="nv">using</span><span class="p">:</span> <span class="o">.</span><span class="n">utf8</span><span class="p">)</span>
+
+<span class="k">var</span> <span class="nv">request</span> <span class="o">=</span> <span class="kt">URLRequest</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="s">"_apiEndpoint_"</span><span class="p">)</span><span class="o">!</span><span class="p">,</span><span class="nv">timeoutInterval</span><span class="p">:</span> <span class="kt">Double</span><span class="o">.</span><span class="n">infinity</span><span class="p">)</span>
+<span class="n">request</span><span class="o">.</span><span class="nf">addValue</span><span class="p">(</span><span class="s">"application/json"</span><span class="p">,</span> <span class="nv">forHTTPHeaderField</span><span class="p">:</span> <span class="s">"content_type"</span><span class="p">)</span>
+<span class="n">request</span><span class="o">.</span><span class="nf">addValue</span><span class="p">(</span><span class="s">"{{bearer_token}}"</span><span class="p">,</span> <span class="nv">forHTTPHeaderField</span><span class="p">:</span> <span class="s">"Authorization"</span><span class="p">)</span>
+
+<span class="n">request</span><span class="o">.</span><span class="n">httpMethod</span> <span class="o">=</span> <span class="s">"POST"</span>
+<span class="n">request</span><span class="o">.</span><span class="n">httpBody</span> <span class="o">=</span> <span class="n">postData</span>
+
+<span class="k">let</span> <span class="nv">task</span> <span class="o">=</span> <span class="kt">URLSession</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">dataTask</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span> <span class="n">data</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">error</span> <span class="k">in</span> 
+  <span class="k">guard</span> <span class="k">let</span> <span class="nv">data</span> <span class="o">=</span> <span class="n">data</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="kt">String</span><span class="p">(</span><span class="nv">describing</span><span class="p">:</span> <span class="n">error</span><span class="p">))</span>
+    <span class="n">semaphore</span><span class="o">.</span><span class="nf">signal</span><span class="p">()</span>
+    <span class="k">return</span>
+  <span class="p">}</span>
+  <span class="nf">print</span><span class="p">(</span><span class="kt">String</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="n">data</span><span class="p">,</span> <span class="nv">encoding</span><span class="p">:</span> <span class="o">.</span><span class="n">utf8</span><span class="p">)</span><span class="o">!</span><span class="p">)</span>
+  <span class="n">semaphore</span><span class="o">.</span><span class="nf">signal</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="n">task</span><span class="o">.</span><span class="nf">resume</span><span class="p">()</span>
+<span class="n">semaphore</span><span class="o">.</span><span class="nf">wait</span><span class="p">()</span>
+
+</code></pre></div>
+
+<p>Prior to making your first API call, add the bearer token retrieved by a <strong>Request Bearer Token</strong> request in the header, as shown below.
+Include it in all your requests for authorization.</p>
+
+<!-- Our web-hosted resources are protected through 
+the Microsoft identity platform that implements OAuth 2.0 authorization protocol. 
+OAuth 2.0 is a method through which your third-party app can access web-hosted 
+resources on behalf of your users. -->
+
+<h3 id='header-parameters'>Header Parameters</h3>
+
+<!-- The Authorization is required, consider a new column for mandatory elements-->
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>content_type</td>
+<td>application/json</td>
+<td>string</td>
+<td>The format the body of the request is being sent as.</td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td><code>{{bearer_token}}</code></td>
+<td>string</td>
+<td>Credential used by your application to access our API.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+You must replace <code>{{bearer_token}}</code> in the header of all your requests with the access token returned after sending the Getbearer_token request.
+</aside>
+
+<p>Continue onward to make your first <strong>Enroll</strong> request.</p>
+<h1 id='area-resource'>Area Resource</h1>
+<h2 id='enroll'>Enroll</h2>
+
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://www.smartinventory/api/area/enroll'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'content_type: application/json'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: {{bearer_token}}'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "session_token" : "{{session_token}}"
+}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">myHeaders</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Headers</span><span class="p">();</span>
+<span class="nx">myHeaders</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">"</span><span class="s2">content_type</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">myHeaders</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">"</span><span class="s2">Authorization</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">{{bearer_token}}</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">raw</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span><span class="dl">"</span><span class="s2">session_token</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">{{session_token}}</span><span class="dl">"</span><span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">requestOptions</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">myHeaders</span><span class="p">,</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">raw</span><span class="p">,</span>
+  <span class="na">redirect</span><span class="p">:</span> <span class="dl">'</span><span class="s1">follow</span><span class="dl">'</span>
+<span class="p">};</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="dl">"</span><span class="s2">https://www.smartinventory/api/area/enroll</span><span class="dl">"</span><span class="p">,</span> <span class="nx">requestOptions</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">text</span><span class="p">())</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">result</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">))</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">error</span><span class="dl">'</span><span class="p">,</span> <span class="nx">error</span><span class="p">));</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="nc">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
+<span class="nc">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="nc">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"{\n\t\"session_token\" : \"{{session_token}}\"\n}"</span><span class="o">);</span>
+<span class="nc">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://www.smartinventory/api/area/enroll"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">"POST"</span><span class="o">,</span> <span class="n">body</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"content_type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"{{bearer_token}}"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre></div><div class="highlight"><pre class="highlight swift tab-swift"><code><span class="kd">import</span> <span class="kt">Foundation</span>
+<span class="cp">#if canImport(FoundationNetworking)</span>
+<span class="kd">import</span> <span class="kt">FoundationNetworking</span>
+<span class="cp">#endif</span>
+
+<span class="k">var</span> <span class="nv">semaphore</span> <span class="o">=</span> <span class="kt">DispatchSemaphore</span> <span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="k">let</span> <span class="nv">parameters</span> <span class="o">=</span> <span class="s">"{</span><span class="se">\n\t\"</span><span class="s">session_token</span><span class="se">\"</span><span class="s"> : </span><span class="se">\"</span><span class="s">{{session_token}}</span><span class="se">\"\n</span><span class="s">}"</span>
+<span class="k">let</span> <span class="nv">postData</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="nf">data</span><span class="p">(</span><span class="nv">using</span><span class="p">:</span> <span class="o">.</span><span class="n">utf8</span><span class="p">)</span>
+
+<span class="k">var</span> <span class="nv">request</span> <span class="o">=</span> <span class="kt">URLRequest</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="s">"https://www.smartinventory/api/area/enroll"</span><span class="p">)</span><span class="o">!</span><span class="p">,</span><span class="nv">timeoutInterval</span><span class="p">:</span> <span class="kt">Double</span><span class="o">.</span><span class="n">infinity</span><span class="p">)</span>
+<span class="n">request</span><span class="o">.</span><span class="nf">addValue</span><span class="p">(</span><span class="s">"application/json"</span><span class="p">,</span> <span class="nv">forHTTPHeaderField</span><span class="p">:</span> <span class="s">"content_type"</span><span class="p">)</span>
+<span class="n">request</span><span class="o">.</span><span class="nf">addValue</span><span class="p">(</span><span class="s">"{{bearer_token}}"</span><span class="p">,</span> <span class="nv">forHTTPHeaderField</span><span class="p">:</span> <span class="s">"Authorization"</span><span class="p">)</span>
+
+<span class="n">request</span><span class="o">.</span><span class="n">httpMethod</span> <span class="o">=</span> <span class="s">"POST"</span>
+<span class="n">request</span><span class="o">.</span><span class="n">httpBody</span> <span class="o">=</span> <span class="n">postData</span>
+
+<span class="k">let</span> <span class="nv">task</span> <span class="o">=</span> <span class="kt">URLSession</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">dataTask</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span> <span class="n">data</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">error</span> <span class="k">in</span> 
+  <span class="k">guard</span> <span class="k">let</span> <span class="nv">data</span> <span class="o">=</span> <span class="n">data</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="kt">String</span><span class="p">(</span><span class="nv">describing</span><span class="p">:</span> <span class="n">error</span><span class="p">))</span>
+    <span class="n">semaphore</span><span class="o">.</span><span class="nf">signal</span><span class="p">()</span>
+    <span class="k">return</span>
+  <span class="p">}</span>
+  <span class="nf">print</span><span class="p">(</span><span class="kt">String</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="n">data</span><span class="p">,</span> <span class="nv">encoding</span><span class="p">:</span> <span class="o">.</span><span class="n">utf8</span><span class="p">)</span><span class="o">!</span><span class="p">)</span>
+  <span class="n">semaphore</span><span class="o">.</span><span class="nf">signal</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="n">task</span><span class="o">.</span><span class="nf">resume</span><span class="p">()</span>
+<span class="n">semaphore</span><span class="o">.</span><span class="nf">wait</span><span class="p">()</span>
+
+</code></pre></div>
+
+<blockquote>
+<p>Request Body (JSON):</p>
+</blockquote>
+
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"session_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"w551UBuls9RmFbtISz6uw551UBuls9RmFbtISz6u"</span><span class="p">,</span><span class="w"> 
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"device_details"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"device_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Online"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"is_activated"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-04T14:13:05.2627022J"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"device_ID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MBA-PROD-LSR-001.ATR1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"device_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Laser Barcode Scanner"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"device_actions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"read_2D_barcode"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"device_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Error"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"is_activated"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-01T24:57:16.3723921T"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"device_ID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MBA-PROD-RFID-002.ATR3"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"device_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RFID Scanner"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"device_actions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"read_RFID_tags"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"device_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Offline"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"printer_state"</span><span class="p">:</span><span class="w"> 
+      </span><span class="nl">"is_activated"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-01I44:13:02.3668319Z1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"device_ID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MBA-PROD-DTP-003.ATR4"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"device_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Direct Thermal Printer"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"device_actions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"print_product_label
+    }
+  ],
+}
+</span></code></pre></div>
+
+<!-- enroll to the location (enrolls a peripheral to a location) which reserves it to the session token?
+Then unenroll to release all peripherals reserved by session token? -->
+
+<p>Enroll to the area encoded in your session token. The only required action is to include it in the request body.
+It is decoded and checked during the enroll call.</p>
+
+<!-- This returns the last known status of the logical type Scanner with the capability to read barcodes. -->
+
+<h3 id='http-request'>HTTP Request</h3>
+
+<p><code>POST area/enroll</code></p>
+
+<h3 id='request-body'>Request Body</h3>
+
+<table><thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>O/M</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>session_token</td>
+<td>string</td>
+<td>Mandatory</td>
+<td>One-time token used to establish a session for a user and is revoked when the token expires. It contains the location at which the session token will be used.</td>
+</tr>
+</tbody></table>
+
+<!-- Webhook | string | Optional | Fill in this field to receive messages via the webhook. No service bus information will be returned.
+WebhookSecurity<br>Token | string | Optional | See above. -->
+
+<aside class="success">
+A successful request returns a status of 200 OK and the body of the response will contain the device details for the enrolled area.
+<!-- Add link here. The JSON response is the only thing not included here, 
+so maybe you do not need a link to the conceptual guide-->
+
+</aside>
+
+<h3 id='response'>Response</h3>
+
+<p>The response returns the <code>device_details</code> object that lists the devices at the specified location and their details
+such as their state, if they are activated, their type, and actions available to each device.</p>
+
+<table><thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>O/M</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>device_details</td>
+<td>array[object]</td>
+<td>Mandatory</td>
+<td>List of devices at the specified area and their details.</td>
+</tr>
+<tr>
+<td>device_state</td>
+<td>string</td>
+<td>Mandatory</td>
+<td>The overall state of the device, either: <code>Online</code>, <code>Offline</code>, or <code>Error</code>.</td>
+</tr>
+<tr>
+<td>is_activated</td>
+<td>bool</td>
+<td>Mandatory</td>
+<td>If yes, then the device has been activated by your application. If no, it is not activated.</td>
+</tr>
+<tr>
+<td>device_ID</td>
+<td>string</td>
+<td>Mandatory</td>
+<td>The network ID used to identify the device on the network.</td>
+</tr>
+<tr>
+<td>device_type</td>
+<td>string</td>
+<td>Mandatory</td>
+<td>The type of device, either <code>Laser barcode scanner</code>, <code>RFID Scanner</code>, or <code>Direct Thermal Printer</code>.</td>
+</tr>
+<tr>
+<td>device_actions</td>
+<td>array[object]</td>
+<td>Mandatory</td>
+<td>The actions available to the device at the location. Either <code>read_2D_barcode</code>, <code>read_RFID_tag</code>, or <code>print_product_label</code>.</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+An unsuccessful request may return either a 400, 401, 409, 422 error code with an explanatory message. For the general meaning of these responses, see the Error Codes section of this document.
+</aside>
+
+<h2 id='unenroll'>Unenroll</h2>
+
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://www.smartinventory/api/area/unenroll'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'content_type: application/json'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: {{bearer_token}}'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "session_token" : "{{session_token}}"
+}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">myHeaders</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Headers</span><span class="p">();</span>
+<span class="nx">myHeaders</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">"</span><span class="s2">content_type</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">myHeaders</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">"</span><span class="s2">Authorization</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">{{bearer_token}}</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">raw</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span><span class="dl">"</span><span class="s2">session_token</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">{{session_token}}</span><span class="dl">"</span><span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">requestOptions</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">myHeaders</span><span class="p">,</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">raw</span><span class="p">,</span>
+  <span class="na">redirect</span><span class="p">:</span> <span class="dl">'</span><span class="s1">follow</span><span class="dl">'</span>
+<span class="p">};</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="dl">"</span><span class="s2">https://www.smartinventory/api/area/unenroll</span><span class="dl">"</span><span class="p">,</span> <span class="nx">requestOptions</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">text</span><span class="p">())</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">result</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">))</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">error</span><span class="dl">'</span><span class="p">,</span> <span class="nx">error</span><span class="p">));</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="nc">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
+<span class="nc">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="nc">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"{\n\t\"session_token\" : \"{{session_token}}\"\n}"</span><span class="o">);</span>
+<span class="nc">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://www.smartinventory/api/area/unenroll"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">"POST"</span><span class="o">,</span> <span class="n">body</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"content_type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"{{bearer_token}}"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre></div><div class="highlight"><pre class="highlight swift tab-swift"><code><span class="kd">import</span> <span class="kt">Foundation</span>
+<span class="cp">#if canImport(FoundationNetworking)</span>
+<span class="kd">import</span> <span class="kt">FoundationNetworking</span>
+<span class="cp">#endif</span>
+
+<span class="k">var</span> <span class="nv">semaphore</span> <span class="o">=</span> <span class="kt">DispatchSemaphore</span> <span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="k">let</span> <span class="nv">parameters</span> <span class="o">=</span> <span class="s">"{</span><span class="se">\n\t\"</span><span class="s">session_token</span><span class="se">\"</span><span class="s"> : </span><span class="se">\"</span><span class="s">{{session_token}}</span><span class="se">\"\n</span><span class="s">}"</span>
+<span class="k">let</span> <span class="nv">postData</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="nf">data</span><span class="p">(</span><span class="nv">using</span><span class="p">:</span> <span class="o">.</span><span class="n">utf8</span><span class="p">)</span>
+
+<span class="k">var</span> <span class="nv">request</span> <span class="o">=</span> <span class="kt">URLRequest</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="s">"https://www.smartinventory/api/area/unenroll"</span><span class="p">)</span><span class="o">!</span><span class="p">,</span><span class="nv">timeoutInterval</span><span class="p">:</span> <span class="kt">Double</span><span class="o">.</span><span class="n">infinity</span><span class="p">)</span>
+<span class="n">request</span><span class="o">.</span><span class="nf">addValue</span><span class="p">(</span><span class="s">"application/json"</span><span class="p">,</span> <span class="nv">forHTTPHeaderField</span><span class="p">:</span> <span class="s">"content_type"</span><span class="p">)</span>
+<span class="n">request</span><span class="o">.</span><span class="nf">addValue</span><span class="p">(</span><span class="s">"{{bearer_token}}"</span><span class="p">,</span> <span class="nv">forHTTPHeaderField</span><span class="p">:</span> <span class="s">"Authorization"</span><span class="p">)</span>
+
+<span class="n">request</span><span class="o">.</span><span class="n">httpMethod</span> <span class="o">=</span> <span class="s">"POST"</span>
+<span class="n">request</span><span class="o">.</span><span class="n">httpBody</span> <span class="o">=</span> <span class="n">postData</span>
+
+<span class="k">let</span> <span class="nv">task</span> <span class="o">=</span> <span class="kt">URLSession</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">dataTask</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span> <span class="n">data</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">error</span> <span class="k">in</span> 
+  <span class="k">guard</span> <span class="k">let</span> <span class="nv">data</span> <span class="o">=</span> <span class="n">data</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="kt">String</span><span class="p">(</span><span class="nv">describing</span><span class="p">:</span> <span class="n">error</span><span class="p">))</span>
+    <span class="n">semaphore</span><span class="o">.</span><span class="nf">signal</span><span class="p">()</span>
+    <span class="k">return</span>
+  <span class="p">}</span>
+  <span class="nf">print</span><span class="p">(</span><span class="kt">String</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="n">data</span><span class="p">,</span> <span class="nv">encoding</span><span class="p">:</span> <span class="o">.</span><span class="n">utf8</span><span class="p">)</span><span class="o">!</span><span class="p">)</span>
+  <span class="n">semaphore</span><span class="o">.</span><span class="nf">signal</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="n">task</span><span class="o">.</span><span class="nf">resume</span><span class="p">()</span>
+<span class="n">semaphore</span><span class="o">.</span><span class="nf">wait</span><span class="p">()</span>
+
+</code></pre></div>
+
+<blockquote>
+<p>Request Body (JSON):</p>
+</blockquote>
+
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"session_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"w551UBuls9RmFbtISz6uw551UBuls9RmFbtISz6u"</span><span class="p">,</span><span class="w"> 
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+
+<p>Unenrolls all devices part of a session and removes all outstanding commands.</p>
+
+<h3 id='http-request'>HTTP Request</h3>
+
+<p><code>POST area/unenroll</code></p>
+
+<h3 id='request-body'>Request Body</h3>
+
+<table><thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>O/M</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>session_token</td>
+<td>string</td>
+<td>Mandatory</td>
+<td>One-time token used to establish a session for a user and is revoked when the token expires. It contains the location at which the session token will be used.</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+A successful request returns a status of 204: No content.
+</aside>
+
+<h3 id='response'>Response</h3>
+
+<p>No JSON returned.</p>
+
+<aside class="warning">
+An unsuccessful request may return either a 400, 401, or a 409 error code with an explanatory message. For the general meaning of these responses, see the Error Codes section of this document.
+</aside>
+
+<h2 id='request-state'>Request State</h2>
+
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://www.smartinventory/api/area/requeststate'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'content_type: application/json'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: {{bearer_token}}'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{ "device_list" : [], 
+  "transaction_ID" : "1", 
+  "session_token" : "{{session_token}}"
+} '</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">myHeaders</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Headers</span><span class="p">();</span>
+<span class="nx">myHeaders</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">"</span><span class="s2">content_type</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">myHeaders</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">"</span><span class="s2">Authorization</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">{{bearer_token}}</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">raw</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span><span class="dl">"</span><span class="s2">device_list</span><span class="dl">"</span><span class="p">:[],</span><span class="dl">"</span><span class="s2">transaction_ID</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">session_token</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">{{session_token}}</span><span class="dl">"</span><span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">requestOptions</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">myHeaders</span><span class="p">,</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">raw</span><span class="p">,</span>
+  <span class="na">redirect</span><span class="p">:</span> <span class="dl">'</span><span class="s1">follow</span><span class="dl">'</span>
+<span class="p">};</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="dl">"</span><span class="s2">https://www.smartinventory/api/area/requeststate</span><span class="dl">"</span><span class="p">,</span> <span class="nx">requestOptions</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">text</span><span class="p">())</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">result</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">))</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">error</span><span class="dl">'</span><span class="p">,</span> <span class="nx">error</span><span class="p">));</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="nc">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
+<span class="nc">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="nc">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"{ \"device_list\" : [], \n  \"transaction_ID\" : \"1\", \n  \"session_token\" : \"{{session_token}}\"\n} "</span><span class="o">);</span>
+<span class="nc">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://www.smartinventory/api/area/requeststate"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">"POST"</span><span class="o">,</span> <span class="n">body</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"content_type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"{{bearer_token}}"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre></div><div class="highlight"><pre class="highlight swift tab-swift"><code><span class="kd">import</span> <span class="kt">Foundation</span>
+<span class="cp">#if canImport(FoundationNetworking)</span>
+<span class="kd">import</span> <span class="kt">FoundationNetworking</span>
+<span class="cp">#endif</span>
+
+<span class="k">var</span> <span class="nv">semaphore</span> <span class="o">=</span> <span class="kt">DispatchSemaphore</span> <span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="k">let</span> <span class="nv">parameters</span> <span class="o">=</span> <span class="s">"{ </span><span class="se">\"</span><span class="s">device_list</span><span class="se">\"</span><span class="s"> : [], </span><span class="se">\n</span><span class="s">  </span><span class="se">\"</span><span class="s">transaction_ID</span><span class="se">\"</span><span class="s"> : </span><span class="se">\"</span><span class="s">1</span><span class="se">\"</span><span class="s">, </span><span class="se">\n</span><span class="s">  </span><span class="se">\"</span><span class="s">session_token</span><span class="se">\"</span><span class="s"> : </span><span class="se">\"</span><span class="s">{{session_token}}</span><span class="se">\"\n</span><span class="s">} "</span>
+<span class="k">let</span> <span class="nv">postData</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="nf">data</span><span class="p">(</span><span class="nv">using</span><span class="p">:</span> <span class="o">.</span><span class="n">utf8</span><span class="p">)</span>
+
+<span class="k">var</span> <span class="nv">request</span> <span class="o">=</span> <span class="kt">URLRequest</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="s">"https://www.smartinventory/api/area/requeststate"</span><span class="p">)</span><span class="o">!</span><span class="p">,</span><span class="nv">timeoutInterval</span><span class="p">:</span> <span class="kt">Double</span><span class="o">.</span><span class="n">infinity</span><span class="p">)</span>
+<span class="n">request</span><span class="o">.</span><span class="nf">addValue</span><span class="p">(</span><span class="s">"application/json"</span><span class="p">,</span> <span class="nv">forHTTPHeaderField</span><span class="p">:</span> <span class="s">"content_type"</span><span class="p">)</span>
+<span class="n">request</span><span class="o">.</span><span class="nf">addValue</span><span class="p">(</span><span class="s">"{{bearer_token}}"</span><span class="p">,</span> <span class="nv">forHTTPHeaderField</span><span class="p">:</span> <span class="s">"Authorization"</span><span class="p">)</span>
+
+<span class="n">request</span><span class="o">.</span><span class="n">httpMethod</span> <span class="o">=</span> <span class="s">"POST"</span>
+<span class="n">request</span><span class="o">.</span><span class="n">httpBody</span> <span class="o">=</span> <span class="n">postData</span>
+
+<span class="k">let</span> <span class="nv">task</span> <span class="o">=</span> <span class="kt">URLSession</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">dataTask</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span> <span class="n">data</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">error</span> <span class="k">in</span> 
+  <span class="k">guard</span> <span class="k">let</span> <span class="nv">data</span> <span class="o">=</span> <span class="n">data</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="kt">String</span><span class="p">(</span><span class="nv">describing</span><span class="p">:</span> <span class="n">error</span><span class="p">))</span>
+    <span class="n">semaphore</span><span class="o">.</span><span class="nf">signal</span><span class="p">()</span>
+    <span class="k">return</span>
+  <span class="p">}</span>
+  <span class="nf">print</span><span class="p">(</span><span class="kt">String</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="n">data</span><span class="p">,</span> <span class="nv">encoding</span><span class="p">:</span> <span class="o">.</span><span class="n">utf8</span><span class="p">)</span><span class="o">!</span><span class="p">)</span>
+  <span class="n">semaphore</span><span class="o">.</span><span class="nf">signal</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="n">task</span><span class="o">.</span><span class="nf">resume</span><span class="p">()</span>
+<span class="n">semaphore</span><span class="o">.</span><span class="nf">wait</span><span class="p">()</span>
+
+</code></pre></div>
+
+<blockquote>
+<p>Request Body (JSON):</p>
+</blockquote>
+
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"device_list"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"device_ID"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"MBA-PROD-LSR-001.ATR1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"device_ID"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"MBA-PROD-RFID-002.ATR3"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"device_ID"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"MBA-PROD-DTP-003.ATR4"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"transaction_ID"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"session_token"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"{{session_token}}"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"device_state_list"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"device_ID"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nl">"MBA-PROD-LSR-001.ATR1"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">”Online”</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"device_ID"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nl">"MBA-PROD-RFID-002.ATR3"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">”Error”</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"device_ID"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nl">"MBA-PROD-DTP-003.ATR4"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">”Offline”</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"transaction_ID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ke9304kfl-0395-01893-934j-91234091304940"</span><span class="p">,</span><span class="w"> 
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+
+<p>Request the state of devices. Leave <code>device_state_list</code> empty to request the state of all devices.</p>
+
+<h3 id='http-request'>HTTP Request</h3>
+
+<p><code>POST area/requeststate</code></p>
+
+<h3 id='request-body'>Request Body</h3>
+
+<table><thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>O/M</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>device_list</td>
+<td>array[object]</td>
+<td>Mandatory</td>
+<td>A list comprised of one or more devices.</td>
+</tr>
+<tr>
+<td>device_ID</td>
+<td>string</td>
+<td>Mandatory</td>
+<td>The network ID used to identify the device on the network.</td>
+</tr>
+<tr>
+<td>transaction_ID</td>
+<td>string</td>
+<td>Optional</td>
+<td>The transaction initiated through an API call from your application.</td>
+</tr>
+<tr>
+<td>session_token</td>
+<td>string</td>
+<td>Mandatory</td>
+<td>One-time token used to establish a session for a user and is revoked when the token expires. It contains the location at which the session token will be used.</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+A successful request returns a status of 200 OK with device state(s).
+</aside>
+
+<h3 id='response'>Response</h3>
+
+<table><thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>O/M</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>device_state_list</td>
+<td>array[object]</td>
+<td>Mandatory</td>
+<td>A list of devices and their statuses. Possible values are Online, Offline, or DeviceError.</td>
+</tr>
+<tr>
+<td>device_ID</td>
+<td>string</td>
+<td>Mandatory</td>
+<td>The network ID used to identify the device on the network.</td>
+</tr>
+<tr>
+<td>transaction_ID</td>
+<td>string</td>
+<td>Optional</td>
+<td>The transaction initiated through an API call from your application.</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+An unsuccessful request may return a 400 error code with an explanatory message. For the general meaning of these responses, see the Error Codes section of this document.
+</aside>
+<h1 id='device-resource'>Device Resource</h1>
+<h2 id='activate'>Activate</h2>
+
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://www.smartinventory/api/device/activate'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: {{bearer_token}}'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'content_type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{ 
+ "device_ID" : "{{device_ID}}", 
+ "transaction_ID" : "62d1a8e4-9e0c-4959-97ff-59342fb2c33f", 
+ "session_token" : "{{session_token}}"
+ }
+'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">myHeaders</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Headers</span><span class="p">();</span>
+<span class="nx">myHeaders</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">"</span><span class="s2">Authorization</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">{{bearer_token}}</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">myHeaders</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">"</span><span class="s2">content_type</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">raw</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span><span class="dl">"</span><span class="s2">device_ID</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">{{device_ID}}</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">transaction_ID</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">26cf158a-f8cf-43d7-a16a-b8b749aaa57d</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">session_token</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">{{session_token}}</span><span class="dl">"</span><span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">requestOptions</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">myHeaders</span><span class="p">,</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">raw</span><span class="p">,</span>
+  <span class="na">redirect</span><span class="p">:</span> <span class="dl">'</span><span class="s1">follow</span><span class="dl">'</span>
+<span class="p">};</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="dl">"</span><span class="s2">https://www.smartinventory/api/device/activate</span><span class="dl">"</span><span class="p">,</span> <span class="nx">requestOptions</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">text</span><span class="p">())</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">result</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">))</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">error</span><span class="dl">'</span><span class="p">,</span> <span class="nx">error</span><span class="p">));</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="nc">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
+<span class="nc">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="nc">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"{ \r\n \"device_ID\" : \"{{device_ID}}\", \r\n \"transaction_ID\" : \"9b673d5c-3790-43ea-9308-6d57f20bdd00\", \r\n \"session_token\" : \"{{session_token}}\"\r\n }\r\n"</span><span class="o">);</span>
+<span class="nc">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://www.smartinventory/api/device/activate"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">"POST"</span><span class="o">,</span> <span class="n">body</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"{{bearer_token}}"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"content_type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre></div><div class="highlight"><pre class="highlight swift tab-swift"><code><span class="kd">import</span> <span class="kt">Foundation</span>
+<span class="cp">#if canImport(FoundationNetworking)</span>
+<span class="kd">import</span> <span class="kt">FoundationNetworking</span>
+<span class="cp">#endif</span>
+
+<span class="k">var</span> <span class="nv">semaphore</span> <span class="o">=</span> <span class="kt">DispatchSemaphore</span> <span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="k">let</span> <span class="nv">parameters</span> <span class="o">=</span> <span class="s">"{ </span><span class="se">\r\n</span><span class="s"> </span><span class="se">\"</span><span class="s">device_ID</span><span class="se">\"</span><span class="s"> : </span><span class="se">\"</span><span class="s">{{device_ID}}</span><span class="se">\"</span><span class="s">, </span><span class="se">\r\n</span><span class="s"> </span><span class="se">\"</span><span class="s">transaction_ID</span><span class="se">\"</span><span class="s"> : </span><span class="se">\"</span><span class="s">c6874c0b-df3d-4ac7-b9aa-a50500e91061</span><span class="se">\"</span><span class="s">, </span><span class="se">\r\n</span><span class="s"> </span><span class="se">\"</span><span class="s">session_token</span><span class="se">\"</span><span class="s"> : </span><span class="se">\"</span><span class="s">{{session_token}}</span><span class="se">\"\r\n</span><span class="s"> }</span><span class="se">\r\n</span><span class="s">"</span>
+<span class="k">let</span> <span class="nv">postData</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="nf">data</span><span class="p">(</span><span class="nv">using</span><span class="p">:</span> <span class="o">.</span><span class="n">utf8</span><span class="p">)</span>
+
+<span class="k">var</span> <span class="nv">request</span> <span class="o">=</span> <span class="kt">URLRequest</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="s">"https://www.smartinventory/api/device/activate"</span><span class="p">)</span><span class="o">!</span><span class="p">,</span><span class="nv">timeoutInterval</span><span class="p">:</span> <span class="kt">Double</span><span class="o">.</span><span class="n">infinity</span><span class="p">)</span>
+<span class="n">request</span><span class="o">.</span><span class="nf">addValue</span><span class="p">(</span><span class="s">"{{bearer_token}}"</span><span class="p">,</span> <span class="nv">forHTTPHeaderField</span><span class="p">:</span> <span class="s">"Authorization"</span><span class="p">)</span>
+<span class="n">request</span><span class="o">.</span><span class="nf">addValue</span><span class="p">(</span><span class="s">"application/json"</span><span class="p">,</span> <span class="nv">forHTTPHeaderField</span><span class="p">:</span> <span class="s">"content_type"</span><span class="p">)</span>
+
+<span class="n">request</span><span class="o">.</span><span class="n">httpMethod</span> <span class="o">=</span> <span class="s">"POST"</span>
+<span class="n">request</span><span class="o">.</span><span class="n">httpBody</span> <span class="o">=</span> <span class="n">postData</span>
+
+<span class="k">let</span> <span class="nv">task</span> <span class="o">=</span> <span class="kt">URLSession</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">dataTask</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span> <span class="n">data</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">error</span> <span class="k">in</span> 
+  <span class="k">guard</span> <span class="k">let</span> <span class="nv">data</span> <span class="o">=</span> <span class="n">data</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="kt">String</span><span class="p">(</span><span class="nv">describing</span><span class="p">:</span> <span class="n">error</span><span class="p">))</span>
+    <span class="n">semaphore</span><span class="o">.</span><span class="nf">signal</span><span class="p">()</span>
+    <span class="k">return</span>
+  <span class="p">}</span>
+  <span class="nf">print</span><span class="p">(</span><span class="kt">String</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="n">data</span><span class="p">,</span> <span class="nv">encoding</span><span class="p">:</span> <span class="o">.</span><span class="n">utf8</span><span class="p">)</span><span class="o">!</span><span class="p">)</span>
+  <span class="n">semaphore</span><span class="o">.</span><span class="nf">signal</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="n">task</span><span class="o">.</span><span class="nf">resume</span><span class="p">()</span>
+<span class="n">semaphore</span><span class="o">.</span><span class="nf">wait</span><span class="p">()</span>
+
+</code></pre></div>
+
+<blockquote>
+<p>Request Body (JSON):</p>
+</blockquote>
+
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> 
+    </span><span class="nl">"device_ID"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"{{device_ID}}"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"transaction_ID"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"{{$guid}}"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"session_token"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"{{session_token}}"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div>
+
+<p>Activate a device for scanning or printing. Activating a device indicates that the device can now send
+data to your application via messages. For example, an activated device can send scan events to your application,
+or you may send a command to an activated printer to print a crew report. Deactivating a device will stop it from sending data.</p>
+
+<h3 id='http-request'>HTTP Request</h3>
+
+<p><code>POST device/activate</code></p>
+
+<h3 id='request-body'>Request Body</h3>
+
+<table><thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>O/M</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>device_ID</td>
+<td>string</td>
+<td>Mandatory</td>
+<td>The network ID used to identify the device on the network.</td>
+</tr>
+<tr>
+<td>transaction_ID</td>
+<td>string</td>
+<td>Optional</td>
+<td>The transaction initiated through an API call from your application.</td>
+</tr>
+<tr>
+<td>session_token</td>
+<td>string</td>
+<td>Mandatory</td>
+<td>One-time token used to establish a session for a user and is revoked when the token expires. It contains the location at which the session token will be used.</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+A successful request returns a 200 OK Status and the device is now activated for scanning or printing.
+</aside>
+
+<h3 id='response'>Response</h3>
+
+<p>No JSON response.</p>
+
+<aside class="warning">
+An unsuccessful request may return either a 400, 403, or 501 error code with an explanatory message. For the general meaning of these responses, see the Error Codes section of this document.
+</aside>
+
+<h2 id='send-command'>Send Command</h2>
+
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://www.smartinventory/api/device/sendcommand'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: {{AccessToken}}'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'content_type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{ 
+ "device_ID" : "{{device_ID}}", 
+ "transaction_ID" : "3017d124-1367-49a4-b4d1-885482a1dd0d", 
+ "RequestID" : "54278031-edd5-4be2-950a-693223a7be72", 
+ "session_token" : "{{session_token}}",
+ "command" : "QUQ7TUcjUCNBSGVsbG8="
+} 
+'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">myHeaders</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Headers</span><span class="p">();</span>
+<span class="nx">myHeaders</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">"</span><span class="s2">Authorization</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">{{AccessToken}}</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">myHeaders</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">"</span><span class="s2">content_type</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">raw</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span><span class="dl">"</span><span class="s2">device_ID</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">{{device_ID}}</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">transaction_ID</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">f68ec4d1-1c6e-441b-8c4a-a07095ec9142</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">RequestID</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">d2cbc0f1-b8d6-4207-8ddc-f9de83fbab81</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">session_token</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">{{session_token}}</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">command</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">QUQ7TUcjUCNBSGVsbG8=</span><span class="dl">"</span><span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">requestOptions</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">myHeaders</span><span class="p">,</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">raw</span><span class="p">,</span>
+  <span class="na">redirect</span><span class="p">:</span> <span class="dl">'</span><span class="s1">follow</span><span class="dl">'</span>
+<span class="p">};</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="dl">"</span><span class="s2">https://www.smartinventory/api/device/sendcommand</span><span class="dl">"</span><span class="p">,</span> <span class="nx">requestOptions</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">text</span><span class="p">())</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">result</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">))</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">error</span><span class="dl">'</span><span class="p">,</span> <span class="nx">error</span><span class="p">));</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="nc">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
+<span class="nc">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="nc">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"{ \r\n \"device_ID\" : \"{{device_ID}}\", \r\n \"transaction_ID\" : \"930206be-57ec-4073-879d-bd4c4d4986da\", \r\n \"RequestID\" : \"4bc03c24-0bf0-4642-87d8-6db9302777cc\", \r\n \"session_token\" : \"{{session_token}}\",\r\n \"command\" : \"QUQ7TUcjUCNBSGVsbG8=\"\r\n} \r\n"</span><span class="o">);</span>
+<span class="nc">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://www.smartinventory/api/device/sendcommand"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">"POST"</span><span class="o">,</span> <span class="n">body</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"{{AccessToken}}"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"content_type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre></div><div class="highlight"><pre class="highlight swift tab-swift"><code><span class="kd">import</span> <span class="kt">Foundation</span>
+<span class="cp">#if canImport(FoundationNetworking)</span>
+<span class="kd">import</span> <span class="kt">FoundationNetworking</span>
+<span class="cp">#endif</span>
+
+<span class="k">var</span> <span class="nv">semaphore</span> <span class="o">=</span> <span class="kt">DispatchSemaphore</span> <span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="k">let</span> <span class="nv">parameters</span> <span class="o">=</span> <span class="s">"{ </span><span class="se">\r\n</span><span class="s"> </span><span class="se">\"</span><span class="s">device_ID</span><span class="se">\"</span><span class="s"> : </span><span class="se">\"</span><span class="s">{{device_ID}}</span><span class="se">\"</span><span class="s">, </span><span class="se">\r\n</span><span class="s"> </span><span class="se">\"</span><span class="s">transaction_ID</span><span class="se">\"</span><span class="s"> : </span><span class="se">\"</span><span class="s">08eb4cea-d9d4-46e6-bf6f-065efa6c505c</span><span class="se">\"</span><span class="s">, </span><span class="se">\r\n</span><span class="s"> </span><span class="se">\"</span><span class="s">RequestID</span><span class="se">\"</span><span class="s"> : </span><span class="se">\"</span><span class="s">7d19c106-2ca1-4864-b698-8fa97ac4a692</span><span class="se">\"</span><span class="s">, </span><span class="se">\r\n</span><span class="s"> </span><span class="se">\"</span><span class="s">session_token</span><span class="se">\"</span><span class="s"> : </span><span class="se">\"</span><span class="s">{{session_token}}</span><span class="se">\"</span><span class="s">,</span><span class="se">\r\n</span><span class="s"> </span><span class="se">\"</span><span class="s">command</span><span class="se">\"</span><span class="s"> : </span><span class="se">\"</span><span class="s">QUQ7TUcjUCNBSGVsbG8=</span><span class="se">\"\r\n</span><span class="s">} </span><span class="se">\r\n</span><span class="s">"</span>
+<span class="k">let</span> <span class="nv">postData</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="nf">data</span><span class="p">(</span><span class="nv">using</span><span class="p">:</span> <span class="o">.</span><span class="n">utf8</span><span class="p">)</span>
+
+<span class="k">var</span> <span class="nv">request</span> <span class="o">=</span> <span class="kt">URLRequest</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="s">"https://www.smartinventory/api/device/sendcommand"</span><span class="p">)</span><span class="o">!</span><span class="p">,</span><span class="nv">timeoutInterval</span><span class="p">:</span> <span class="kt">Double</span><span class="o">.</span><span class="n">infinity</span><span class="p">)</span>
+<span class="n">request</span><span class="o">.</span><span class="nf">addValue</span><span class="p">(</span><span class="s">"{{AccessToken}}"</span><span class="p">,</span> <span class="nv">forHTTPHeaderField</span><span class="p">:</span> <span class="s">"Authorization"</span><span class="p">)</span>
+<span class="n">request</span><span class="o">.</span><span class="nf">addValue</span><span class="p">(</span><span class="s">"application/json"</span><span class="p">,</span> <span class="nv">forHTTPHeaderField</span><span class="p">:</span> <span class="s">"content_type"</span><span class="p">)</span>
+
+<span class="n">request</span><span class="o">.</span><span class="n">httpMethod</span> <span class="o">=</span> <span class="s">"POST"</span>
+<span class="n">request</span><span class="o">.</span><span class="n">httpBody</span> <span class="o">=</span> <span class="n">postData</span>
+
+<span class="k">let</span> <span class="nv">task</span> <span class="o">=</span> <span class="kt">URLSession</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">dataTask</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span> <span class="n">data</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">error</span> <span class="k">in</span> 
+  <span class="k">guard</span> <span class="k">let</span> <span class="nv">data</span> <span class="o">=</span> <span class="n">data</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="kt">String</span><span class="p">(</span><span class="nv">describing</span><span class="p">:</span> <span class="n">error</span><span class="p">))</span>
+    <span class="n">semaphore</span><span class="o">.</span><span class="nf">signal</span><span class="p">()</span>
+    <span class="k">return</span>
+  <span class="p">}</span>
+  <span class="nf">print</span><span class="p">(</span><span class="kt">String</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="n">data</span><span class="p">,</span> <span class="nv">encoding</span><span class="p">:</span> <span class="o">.</span><span class="n">utf8</span><span class="p">)</span><span class="o">!</span><span class="p">)</span>
+  <span class="n">semaphore</span><span class="o">.</span><span class="nf">signal</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="n">task</span><span class="o">.</span><span class="nf">resume</span><span class="p">()</span>
+<span class="n">semaphore</span><span class="o">.</span><span class="nf">wait</span><span class="p">()</span>
+
+</code></pre></div>
+
+<blockquote>
+<p>Request Body (JSON):</p>
+</blockquote>
+
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> 
+    </span><span class="nl">"device_ID"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"{{device_ID}}"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"transaction_ID"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"{{$guid}}"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"request_ID"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"{{$guid}}"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"session_token"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"{{session_token}}"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"command"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"QUQ7TUcjUCNBSGVsbG8="</span><span class="w">
+</span><span class="p">}</span><span class="w"> 
+</span></code></pre></div>
+
+<p>Send an command to a device.</p>
+
+<h3 id='http-request'>HTTP Request</h3>
+
+<p><code>POST device/command</code></p>
+
+<h3 id='request-body'>Request Body</h3>
+
+<table><thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>O/M</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>device_ID</td>
+<td>string</td>
+<td>Mandatory</td>
+<td>The network ID used to identify the device on the network.</td>
+</tr>
+<tr>
+<td>transaction_ID</td>
+<td>string</td>
+<td>Optional</td>
+<td>The transaction initiated through an API call from your application.</td>
+</tr>
+<tr>
+<td>request_ID</td>
+<td>string</td>
+<td>Mandatory</td>
+<td>A unique ID for the command to ensure the same command is not executed multiple times.</td>
+</tr>
+<tr>
+<td>session_token</td>
+<td>string</td>
+<td>Mandatory</td>
+<td>One-time token used to establish a session for a user and is revoked when the token expires. It contains the location at which the session token will be used.</td>
+</tr>
+<tr>
+<td>command</td>
+<td>string</td>
+<td>Mandatory</td>
+<td>Command sent to device.</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+A successful request returns a 200 OK Status indicating the command was successfully sent. 
+</aside>
+
+<h3 id='response'>Response</h3>
+
+<p>No JSON response.</p>
+
+<aside class="warning">
+An unsuccessful request may return either a 400 or 401 error code with an explanatory message. For the general meaning of these responses, see the Error Codes section of this document.
+</aside>
+
+<h2 id='deactivate'>Deactivate</h2>
+
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://www.smartinventory/api/device/deactivate'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: {{bearer_token}}'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'content_type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{ 
+ "device_ID" : "{{device_ID}}", 
+ "transaction_ID" : "516fa79b-5264-43a0-a5f3-7e861c6a0cb4", 
+ "session_token" : "{{session_token}}"
+} 
+'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">myHeaders</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Headers</span><span class="p">();</span>
+<span class="nx">myHeaders</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">"</span><span class="s2">Authorization</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">{{bearer_token}}</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">myHeaders</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">"</span><span class="s2">content_type</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">raw</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span><span class="dl">"</span><span class="s2">device_ID</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">{{device_ID}}</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">transaction_ID</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">bd3359e6-0846-4e70-b909-aa5c3f9f1547</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">session_token</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">{{session_token}}</span><span class="dl">"</span><span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">requestOptions</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">myHeaders</span><span class="p">,</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">raw</span><span class="p">,</span>
+  <span class="na">redirect</span><span class="p">:</span> <span class="dl">'</span><span class="s1">follow</span><span class="dl">'</span>
+<span class="p">};</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="dl">"</span><span class="s2">https://www.smartinventory/api/device/deactivate</span><span class="dl">"</span><span class="p">,</span> <span class="nx">requestOptions</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">text</span><span class="p">())</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">result</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">))</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">error</span><span class="dl">'</span><span class="p">,</span> <span class="nx">error</span><span class="p">));</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="nc">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
+<span class="nc">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="nc">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"{ \r\n \"device_ID\" : \"{{device_ID}}\", \r\n \"transaction_ID\" : \"b90a1881-f9e4-439f-88cc-6ee46c243586\", \r\n \"session_token\" : \"{{session_token}}\"\r\n} \r\n"</span><span class="o">);</span>
+<span class="nc">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://www.smartinventory/api/device/deactivate"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">"POST"</span><span class="o">,</span> <span class="n">body</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"{{bearer_token}}"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"content_type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre></div><div class="highlight"><pre class="highlight swift tab-swift"><code><span class="kd">import</span> <span class="kt">Foundation</span>
+<span class="cp">#if canImport(FoundationNetworking)</span>
+<span class="kd">import</span> <span class="kt">FoundationNetworking</span>
+<span class="cp">#endif</span>
+
+<span class="k">var</span> <span class="nv">semaphore</span> <span class="o">=</span> <span class="kt">DispatchSemaphore</span> <span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="k">let</span> <span class="nv">parameters</span> <span class="o">=</span> <span class="s">"{ </span><span class="se">\r\n</span><span class="s"> </span><span class="se">\"</span><span class="s">device_ID</span><span class="se">\"</span><span class="s"> : </span><span class="se">\"</span><span class="s">{{device_ID}}</span><span class="se">\"</span><span class="s">, </span><span class="se">\r\n</span><span class="s"> </span><span class="se">\"</span><span class="s">transaction_ID</span><span class="se">\"</span><span class="s"> : </span><span class="se">\"</span><span class="s">ae573423-addc-45aa-a24a-a6b668c5ec74</span><span class="se">\"</span><span class="s">, </span><span class="se">\r\n</span><span class="s"> </span><span class="se">\"</span><span class="s">session_token</span><span class="se">\"</span><span class="s"> : </span><span class="se">\"</span><span class="s">{{session_token}}</span><span class="se">\"\r\n</span><span class="s">} </span><span class="se">\r\n</span><span class="s">"</span>
+<span class="k">let</span> <span class="nv">postData</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="nf">data</span><span class="p">(</span><span class="nv">using</span><span class="p">:</span> <span class="o">.</span><span class="n">utf8</span><span class="p">)</span>
+
+<span class="k">var</span> <span class="nv">request</span> <span class="o">=</span> <span class="kt">URLRequest</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="s">"https://www.smartinventory/api/device/deactivate"</span><span class="p">)</span><span class="o">!</span><span class="p">,</span><span class="nv">timeoutInterval</span><span class="p">:</span> <span class="kt">Double</span><span class="o">.</span><span class="n">infinity</span><span class="p">)</span>
+<span class="n">request</span><span class="o">.</span><span class="nf">addValue</span><span class="p">(</span><span class="s">"{{bearer_token}}"</span><span class="p">,</span> <span class="nv">forHTTPHeaderField</span><span class="p">:</span> <span class="s">"Authorization"</span><span class="p">)</span>
+<span class="n">request</span><span class="o">.</span><span class="nf">addValue</span><span class="p">(</span><span class="s">"application/json"</span><span class="p">,</span> <span class="nv">forHTTPHeaderField</span><span class="p">:</span> <span class="s">"content_type"</span><span class="p">)</span>
+
+<span class="n">request</span><span class="o">.</span><span class="n">httpMethod</span> <span class="o">=</span> <span class="s">"POST"</span>
+<span class="n">request</span><span class="o">.</span><span class="n">httpBody</span> <span class="o">=</span> <span class="n">postData</span>
+
+<span class="k">let</span> <span class="nv">task</span> <span class="o">=</span> <span class="kt">URLSession</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">dataTask</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span> <span class="n">data</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">error</span> <span class="k">in</span> 
+  <span class="k">guard</span> <span class="k">let</span> <span class="nv">data</span> <span class="o">=</span> <span class="n">data</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="kt">String</span><span class="p">(</span><span class="nv">describing</span><span class="p">:</span> <span class="n">error</span><span class="p">))</span>
+    <span class="n">semaphore</span><span class="o">.</span><span class="nf">signal</span><span class="p">()</span>
+    <span class="k">return</span>
+  <span class="p">}</span>
+  <span class="nf">print</span><span class="p">(</span><span class="kt">String</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="n">data</span><span class="p">,</span> <span class="nv">encoding</span><span class="p">:</span> <span class="o">.</span><span class="n">utf8</span><span class="p">)</span><span class="o">!</span><span class="p">)</span>
+  <span class="n">semaphore</span><span class="o">.</span><span class="nf">signal</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="n">task</span><span class="o">.</span><span class="nf">resume</span><span class="p">()</span>
+<span class="n">semaphore</span><span class="o">.</span><span class="nf">wait</span><span class="p">()</span>
+
+</code></pre></div>
+
+<blockquote>
+<p>Request Body (JSON):</p>
+</blockquote>
+
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> 
+    </span><span class="nl">"device_ID"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"{{device_ID}}"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"transaction_ID"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"{{$guid}}"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"session_token"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"{{session_token}}"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+
+<p>Send a deactivate request whenever a device is no longer required.
+This request cancels a previously executed activate request and 
+prevents the return of data from the device_ID specified.<br>
+It does not release the device if the Release bool is set to False.<br>
+If the device is not deactivated, this request will deactivate the device. </p>
+
+<h3 id='http-request'>HTTP Request</h3>
+
+<p><code>POST device/deactivate</code></p>
+
+<h3 id='request-body'>Request Body</h3>
+
+<table><thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>O/M</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>device_ID</td>
+<td>string</td>
+<td>Mandatory</td>
+<td>The network ID used to identify the device on the network.</td>
+</tr>
+<tr>
+<td>transaction_ID</td>
+<td>string</td>
+<td>Optional</td>
+<td>The transaction initiated through an API call from your application.</td>
+</tr>
+<tr>
+<td>session_token</td>
+<td>string</td>
+<td>Mandatory</td>
+<td>One-time token used to establish a session for a user and is revoked when the token expires. It contains the location at which the session token will be used.</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+A successful request returns a 200 OK Status if the deactivate request succeeds, or if there is no outstanding activate request.
+</aside>
+
+<h3 id='response'>Response</h3>
+
+<p>No JSON response.</p>
+
+<aside class="warning">
+An unsuccessful request may return a 400 error code with an explanatory message. For the general meaning of these responses, see the Error Codes section of this document.
+</aside>
+<h1 id='error'>Error</h1>
+<p>The <strong>SmartInventory API</strong> uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request is invalid.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- Your API key is wrong.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The specified kitten could not be found.</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Gone -- The kitten requested has been removed from our servers.</td>
+</tr>
+<tr>
+<td>418</td>
+<td>I&#39;m a teapot.</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">cURL</a>
+                <a href="#" data-language-name="javascript">Javascript</a>
+                <a href="#" data-language-name="java">Java</a>
+                <a href="#" data-language-name="swift">Swift</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
